@@ -8,14 +8,25 @@ const HeroContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(180deg, #101010 0%, #0d0d0d 100%);
+  background: linear-gradient(
+    180deg,
+    ${(props) => props.theme.navbar} 0%,
+    ${(props) => props.theme.black} 100%
+  );
+  &::after {
+    position: absolute;
+    content: "HI";
+    font-size: 30rem;
+    color: #151515;
+    left: 5rem;
+  }
 `;
 
-export default function index() {
+export default function Hero() {
   return (
     <HeroContainer>
       <HeroIntroduction />
-      <HeroAvatar/>
+      <HeroAvatar />
     </HeroContainer>
   );
 }

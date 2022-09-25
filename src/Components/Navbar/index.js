@@ -1,5 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { ReactComponent as GitHubLogo } from "Images/GitHub.svg";
+import { ReactComponent as LinkedInLogo } from "Images/LinkedIn.svg";
+
+const GitHub = styled(GitHubLogo)`
+  fill: ${(props) => props.theme.white};
+  width: auto;
+  height: 1.5rem;
+`;
+
+const LinkedIn = styled(LinkedInLogo)`
+  fill: ${(props) => props.theme.white};
+  width: auto;
+  height: 1.5rem;
+`;
 
 const NavbarContainer = styled.nav`
   position: fixed;
@@ -7,12 +21,15 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 10rem;
-  background-color: #101010;
+  padding: 2rem 15rem;
+  background-color: ${(props) => props.theme.navbar};
 `;
 
 const Button = styled.button`
-  margin: 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -23,19 +40,18 @@ const Button = styled.button`
   font-size: 1.5rem;
 `;
 
-const LanguageContainer = styled.div`
-  font-size: 1.5rem;
+const LanguageButton = styled(Button)`
+  font-size: 1rem;
+  margin: 0.2rem;
 `;
-
-const NavButtonsContainer = styled.div``;
 
 export default function Navbar() {
   return (
     <NavbarContainer>
-      <LanguageContainer>
-        <Button>PL</Button>/<Button>EN</Button>
-      </LanguageContainer>
-      <NavButtonsContainer>
+      <div>
+        <LanguageButton>PL</LanguageButton>/<LanguageButton>EN</LanguageButton>
+      </div>
+      <nav>
         <Button as="a" href="#">
           ABOUT
         </Button>
@@ -45,7 +61,13 @@ export default function Navbar() {
         <Button as="a" href="#">
           CONTACT
         </Button>
-      </NavButtonsContainer>
+        <Button as="a" href="#">
+          <GitHub />
+        </Button>
+        <Button as="a" href="#">
+          <LinkedIn />
+        </Button>
+      </nav>
     </NavbarContainer>
   );
 }
