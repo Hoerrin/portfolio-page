@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const NavbarContainer = styled.nav`
-  position: absolute;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
