@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ReactComponent as GitHubLogo } from "Images/GitHub.svg";
 import { ReactComponent as LinkedInLogo } from "Images/LinkedIn.svg";
+import { Link } from "react-scroll";
 
 const GitHub = styled(GitHubLogo)`
   fill: ${(props) => props.theme.white};
@@ -26,7 +27,7 @@ const NavbarContainer = styled.nav`
   z-index: 100;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -53,19 +54,19 @@ export default function Navbar() {
         <LanguageButton>PL</LanguageButton>/<LanguageButton>EN</LanguageButton>
       </div>
       <nav>
-        <Button as="a" href="#">
+        <Button to="about" smooth="true" duration={600}>
           ABOUT
         </Button>
-        <Button as="a" href="#">
-          WORK
+        <Button to="portfolio" smooth="true" duration={600}>
+          PORTFOLIO
         </Button>
-        <Button as="a" href="#">
+        <Button to="contact" smooth="true" duration={600}>
           CONTACT
         </Button>
-        <Button as="a" href="#">
+        <Button as="a" href="https://github.com/Hoerrin" target="_blank">
           <GitHub />
         </Button>
-        <Button as="a" href="#">
+        <Button as="a" href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank">
           <LinkedIn />
         </Button>
       </nav>

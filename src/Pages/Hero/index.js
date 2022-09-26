@@ -4,6 +4,8 @@ import HeroIntroduction from "Components/HeroIntroduction";
 import HeroAvatar from "Components/HeroAvatar";
 
 const HeroContainer = styled.div`
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100vh;
@@ -16,15 +18,15 @@ const HeroContainer = styled.div`
   &::after {
     position: absolute;
     content: "HI";
-    font-size: 30rem;
-    color: #151515;
+    font-size: 12rem;
+    color: ${(props) => props.theme.lightGray};
     left: 5rem;
   }
 `;
 
 export default function Hero() {
   return (
-    <HeroContainer>
+    <HeroContainer id="hero">
       <HeroIntroduction />
       <HeroAvatar />
     </HeroContainer>

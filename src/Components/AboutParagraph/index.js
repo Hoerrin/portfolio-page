@@ -2,18 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 const AboutParagraphContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: left;
   margin-left: 12rem;
+  z-index: 1;
 `;
 
 const Paragraph = styled.p`
   color: ${(props) => props.theme.white};
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   letter-spacing: 0.2rem;
-  line-height: 1.7rem;
+  line-height: 1.5rem;
 `;
 
 export default function AboutParagraph() {

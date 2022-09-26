@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const PortfolioContainer = styled.div`
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100vh;
@@ -10,15 +12,12 @@ const PortfolioContainer = styled.div`
   &::after {
     position: absolute;
     content: "PORTFOLIO";
-    font-size: 30rem;
-    color: #151515;
+    font-size: 12rem;
+    color: ${(props) => props.theme.lightGray};
     left: 5rem;
   }
 `;
 
 export default function Portfolio() {
-  return (
-    <PortfolioContainer>
-    </PortfolioContainer>
-  );
+  return <PortfolioContainer id="portfolio"></PortfolioContainer>;
 }

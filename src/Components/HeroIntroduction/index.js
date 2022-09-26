@@ -8,7 +8,6 @@ const HeroIntroductionContainer = styled.div`
   justify-content: center;
   text-align: left;
   margin-left: 12rem;
-  position: relative;
   z-index: 1;
 `;
 
