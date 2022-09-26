@@ -15,7 +15,11 @@ const AboutContainer = styled.div`
     content: "ABOUT";
     font-size: 12rem;
     color: ${(props) => props.theme.lightGray};
-    left: 5rem;
+    left: 7rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 12rem;
   }
 `;
 

@@ -3,7 +3,7 @@ import Navbar from "Components/Navbar";
 import NavDots from "Components/NavDots";
 import Hero from "Pages/Hero";
 import About from "Pages/About";
-import Portfolio from "Pages/Portfolio";
+import Work from "Pages/Work";
 import Contact from "Pages/Contact";
 
 const AppContainer = styled.main``;
@@ -24,7 +24,7 @@ function App() {
         <NavDots />
         <Hero />
         <About />
-        <Portfolio />
+        <Work />
         <Contact />
       </AppContainer>
     </ThemeProvider>

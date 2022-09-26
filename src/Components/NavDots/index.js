@@ -31,7 +31,7 @@ export default function NavDots() {
     <NavDotsContainer>
       <NavDot to="hero" spy={true} disabled={true} offset={-200}/>
       <NavDot to="about" spy={true} offset={-200}/>
-      <NavDot to="portfolio" spy={true} offset={-200}/>
+      <NavDot to="work" spy={true} offset={-200}/>
       <NavDot to="contact" spy={true} offset={-200}/>
     </NavDotsContainer>
   );

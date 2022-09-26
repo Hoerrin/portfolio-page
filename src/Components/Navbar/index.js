@@ -51,22 +51,22 @@ export default function Navbar() {
   return (
     <NavbarContainer>
       <div>
-        <LanguageButton>PL</LanguageButton>/<LanguageButton>EN</LanguageButton>
+        <LanguageButton as={"button"}>PL</LanguageButton>/<LanguageButton as={"button"}>EN</LanguageButton>
       </div>
       <nav>
         <Button to="about" smooth="true" duration={600}>
           ABOUT
         </Button>
-        <Button to="portfolio" smooth="true" duration={600}>
-          PORTFOLIO
+        <Button to="work" smooth="true" duration={600}>
+          WORK
         </Button>
         <Button to="contact" smooth="true" duration={600}>
           CONTACT
         </Button>
-        <Button as="a" href="https://github.com/Hoerrin" target="_blank">
+        <Button as="a" href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">
           <GitHub />
         </Button>
-        <Button as="a" href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank">
+        <Button as="a" href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank" rel="noreferrer">
           <LinkedIn />
         </Button>
       </nav>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from "react-scroll"
 
 const HeroIntroductionContainer = styled.div`
   position: relative;
@@ -30,11 +31,7 @@ const H3 = styled.h3`
   color: ${(props) => props.theme.white};
 `;
 
-const Button = styled.button`
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  text-decoration: none;
+const Button = styled(Link)`
   align-self: flex-start;
   padding: 1rem;
   margin-top: 2rem;
@@ -53,7 +50,7 @@ export default function HeroIntroduction() {
         Patryk <br /> Dworakowski
       </H1>
       <H3>Front-End Developer</H3>
-      <Button>Contact me</Button>
+      <Button to="contact" smooth="true" duration={600}>Contact me</Button>
     </HeroIntroductionContainer>
   );
 }

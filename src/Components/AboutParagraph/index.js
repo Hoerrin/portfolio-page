@@ -22,24 +22,16 @@ export default function AboutParagraph() {
   return (
     <AboutParagraphContainer>
       <Paragraph>
-        Już w dzieciństwie gdy pierwszy komputer pojawił się w moim domu wieczorami próbowałem pisać
-        pierwszy kod...
-        <br />
-        Nie.
-        <br />
-        Oczywiście, że nie. Na początku były gry.
-        <br />
-        Jednak z biegiem lat gdy zagłębiałem się w świat komputerów i programowania, wiedziałem, że
-        to jest to co chcę robić w życiu.
-        <br />
-        <br />
-        Ukończyłem technikum i studia wyższe o profilu informatycznym. Już przy pierwszym kontakcie
-        z Front End Developmentem pokochałem tę dziedzinę, że względu na to, że jest połączeniem
-        mojego zamiłowania do programowania i estetyki.
-        <br />
-        <br />
-        Jestem w trakcie nauki takich technologii jak React, lorem ipsum dolor sid amet, lorem ipsum
-        dolor sid amet, lorem ipsum dolor sid amet
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+        <br /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. <br /> Excepteur sint occaecat cupidatat non proident, sunt
+        in culpa qui officia deserunt mollit anim id est laborum.
+        <br /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. <br /> Excepteur sint occaecat cupidatat non proident, sunt
+        in culpa qui officia deserunt mollit anim id est laborum.
       </Paragraph>
     </AboutParagraphContainer>
   );
