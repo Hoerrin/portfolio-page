@@ -21,8 +21,9 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 15rem;
-  background-color: ${(props) => props.theme.navbar};
+  padding: 2rem 12rem;
+  background-color: ${(props) => props.theme.gray};
+  z-index: 100;
 `;
 
 const Button = styled.button`

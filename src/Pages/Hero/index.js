@@ -10,7 +10,7 @@ const HeroContainer = styled.div`
   width: 100%;
   background: linear-gradient(
     180deg,
-    ${(props) => props.theme.navbar} 0%,
+    ${(props) => props.theme.gray} 0%,
     ${(props) => props.theme.black} 100%
   );
   &::after {
