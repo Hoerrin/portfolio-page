@@ -7,7 +7,7 @@ const AboutParagraphContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: left;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const Paragraph = styled.p`

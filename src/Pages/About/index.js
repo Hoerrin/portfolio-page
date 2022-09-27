@@ -12,6 +12,7 @@ const AboutContainer = styled.div`
   width: 100%;
   background: ${(props) => props.theme.black};
   padding: 0 12rem;
+  z-index: 10;
   &::after {
     position: absolute;
     content: "ABOUT";
@@ -22,6 +23,7 @@ const AboutContainer = styled.div`
     bottom: 0;
     margin: auto;
     height: 12rem;
+    z-index: -1;
     @media screen and (max-width: 768px) {
       left: 0;
       right: 0;

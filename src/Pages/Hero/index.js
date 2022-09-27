@@ -16,6 +16,7 @@ const HeroContainer = styled.div`
     ${(props) => props.theme.gray} 0%,
     ${(props) => props.theme.black} 100%
   );
+  z-index: 10;
   &::after {
     position: absolute;
     content: "HI";
@@ -26,6 +27,7 @@ const HeroContainer = styled.div`
     bottom: 0;
     margin: auto;
     height: 12rem;
+    z-index: -1;
     @media screen and (max-width: 768px) {
       left: 0;
       right: 0;

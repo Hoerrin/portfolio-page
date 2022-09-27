@@ -4,12 +4,15 @@ import styled from "styled-components";
 const WorkContainer = styled.div`
   position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   height: 100vh;
   width: 100%;
   background: ${(props) => props.theme.black};
   padding: 0 12rem;
+  z-index: 10;
   &::after {
     position: absolute;
     content: "WORK";
@@ -20,6 +23,7 @@ const WorkContainer = styled.div`
     bottom: 0;
     margin: auto;
     height: 12rem;
+    z-index: -1;
     @media screen and (max-width: 768px) {
       left: 0;
       right: 0;
@@ -28,7 +32,7 @@ const WorkContainer = styled.div`
       text-align: center;
     }
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     padding: 0;
@@ -38,6 +42,36 @@ const WorkContainer = styled.div`
   }
 `;
 
+const TempDiv = styled.div`
+  width: 20rem;
+  height: 20rem;
+  margin: 1rem;
+  background-color: ${(props) => props.theme.gray};
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid ${(props) => props.theme.white};
+  border-radius: 0.2rem;
+  @media screen and (max-width: 768px) {
+    width: 8rem;
+    height: 8rem;
+  }
+`;
+
 export default function Work() {
-  return <WorkContainer id="work"></WorkContainer>;
+  return (
+    <WorkContainer id="work">
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+      <TempDiv>test</TempDiv>
+    </WorkContainer>
+  );
 }

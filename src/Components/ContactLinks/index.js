@@ -10,6 +10,7 @@ const ContactLinksContainer = styled.div`
   height: 100%;
   width: 100%;
   border: 1px solid ${(props) => props.theme.white};
+  border-radius: 0.2rem;
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.theme.black};
   z-index: 50;

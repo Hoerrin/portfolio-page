@@ -58,7 +58,9 @@ const ContactInnerContainer = styled.div`
 const Separator = styled.p`
   font-size: 1.5rem;
   margin: 2rem;
-  text-align: center,;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export default function Contact() {
