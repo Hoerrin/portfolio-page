@@ -1,4 +1,5 @@
 import AboutParagraph from "Components/AboutParagraph";
+import AboutTechCloud from "Components/AboutTechCloud";
 import React from "react";
 import styled from "styled-components";
 
@@ -10,6 +11,7 @@ const AboutContainer = styled.div`
   height: 100vh;
   width: 100%;
   background: ${(props) => props.theme.black};
+  padding: 0 12rem;
   &::after {
     position: absolute;
     content: "ABOUT";
@@ -26,7 +28,8 @@ const AboutContainer = styled.div`
 export default function About() {
   return (
     <AboutContainer id="about">
-      <AboutParagraph></AboutParagraph>
+      <AboutParagraph />
+      <AboutTechCloud />
     </AboutContainer>
   );
 }

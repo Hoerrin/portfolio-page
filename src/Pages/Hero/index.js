@@ -10,6 +10,7 @@ const HeroContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   height: 100vh;
   width: 100%;
+  padding: 0 12rem;
   background: linear-gradient(
     180deg,
     ${(props) => props.theme.gray} 0%,

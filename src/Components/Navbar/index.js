@@ -28,6 +28,10 @@ const NavbarContainer = styled.nav`
   transition: all 0.5s;
 `;
 
+const NavbarButtonsContainer = styled.div`
+display: flex;
+`
+
 const Button = styled(Link)`
   display: inline-flex;
   align-items: center;
@@ -54,7 +58,7 @@ export default function Navbar(props) {
       <div>
         <LanguageButton as={"button"}>PL</LanguageButton>/<LanguageButton as={"button"}>EN</LanguageButton>
       </div>
-      <nav>
+      <NavbarButtonsContainer>
         <Button to="about" smooth="true" duration={600}>
           ABOUT
         </Button>
@@ -70,7 +74,7 @@ export default function Navbar(props) {
         <Button as="a" href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank" rel="noreferrer">
           <LinkedIn />
         </Button>
-      </nav>
+      </NavbarButtonsContainer>
     </NavbarContainer>
   );
 }

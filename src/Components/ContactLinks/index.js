@@ -16,12 +16,16 @@ const ContactLinksContainer = styled.div`
   height: 27rem;
 `;
 
+const Link = styled.a`
+padding: 0.5rem;
+`
+
 export default function ContactLinks() {
   return (
     <ContactLinksContainer>
-      <a href="mailto:patrykd0604@gmail.com">patrykd0604@gmail.com</a>
-      <a href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">GitHub</a>
+      <Link href="mailto:patrykd0604@gmail.com">patrykd0604@gmail.com</Link>
+      <Link href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank" rel="noreferrer">LinkedIn</Link>
+      <Link href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">GitHub</Link>
     </ContactLinksContainer>
   );
 }

@@ -49,7 +49,7 @@ const AvatarContainer = styled.div`
 
 const Avatar = styled.img`
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
   z-index: 2;
 `;
 

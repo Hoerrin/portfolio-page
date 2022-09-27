@@ -9,6 +9,7 @@ const WorkContainer = styled.div`
   height: 100vh;
   width: 100%;
   background: ${(props) => props.theme.black};
+  padding: 0 12rem;
   &::after {
     position: absolute;
     content: "WORK";
