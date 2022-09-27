@@ -35,8 +35,18 @@ const HeroContainer = styled.div`
       font-size: 8rem;
       text-align: center;
     }
+    @media screen and (max-width: 1280px) {
+      left: 5rem;
+    }
   }
 
+  
+  @media screen and (max-width: 1280px) {
+    padding: 0 8rem;
+  }
+  @media screen and (max-width: 930px) {
+    padding: 0 6rem;
+  }
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;

@@ -15,7 +15,7 @@ const theme = {
   white: "#d9d9d9",
   gray: "#101010",
   lightGray: "#171717",
-  accent: "#3de0f2",
+  accent: "#3babb9",
 };
 
 function App() {

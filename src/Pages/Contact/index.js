@@ -33,6 +33,13 @@ const ContactContainer = styled.div`
       text-align: center;
     }
   }
+  
+  @media screen and (max-width: 1280px) {
+    padding: 0 8rem;
+  }
+  @media screen and (max-width: 930px) {
+    padding: 0 6rem;
+  }
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;

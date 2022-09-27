@@ -22,11 +22,23 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${(props) => props.scrollPosition <= 0 ? "2.5rem 12rem" : "1rem 12rem;"};
+  padding-left: 12rem;
+    padding-right: 12rem;
+  padding-top: ${(props) => props.scrollPosition <= 0 ? "2.5rem" : "1rem;"};
+  padding-bottom: ${(props) => props.scrollPosition <= 0 ? "2.5rem" : "1rem;"};
   background-color: ${(props) => props.scrollPosition <= 0 ? "#0000" : props.theme.gray};
   z-index: 100;
   transition: all 0.5s;
 
+  
+  @media screen and (max-width: 1280px) {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  @media screen and (max-width: 930px) {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
   @media screen and (max-width: 768px){
     display: none;
   }

@@ -21,8 +21,9 @@ const NavDot = styled(Link)`
   width: 0.8rem;
   margin-bottom: 1rem;
   transition: all 0.2s ease-in-out;
+  opacity: 0.3;
   &.active{
-    background-color: red;
+    background-color: ${(props) => props.theme.accent};
     transform: scale(1.2);
   }
 

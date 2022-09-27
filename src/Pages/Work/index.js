@@ -32,6 +32,13 @@ const WorkContainer = styled.div`
       text-align: center;
     }
   }
+  
+  @media screen and (max-width: 1280px) {
+    padding: 0 8rem;
+  }
+  @media screen and (max-width: 930px) {
+    padding: 0 6rem;
+  }
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -53,6 +60,10 @@ const TempDiv = styled.div`
   justify-content: center;
   border: 1px solid ${(props) => props.theme.white};
   border-radius: 0.2rem;
+  @media screen and (max-width: 930px) {
+    width: 11rem;
+    height: 11rem;
+  }
   @media screen and (max-width: 768px) {
     width: 8rem;
     height: 8rem;
