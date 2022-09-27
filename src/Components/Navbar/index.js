@@ -26,6 +26,10 @@ const NavbarContainer = styled.nav`
   background-color: ${(props) => props.scrollPosition <= 0 ? "#0000" : props.theme.gray};
   z-index: 100;
   transition: all 0.5s;
+
+  @media screen and (max-width: 768px){
+    display: none;
+  }
 `;
 
 const NavbarButtonsContainer = styled.div`

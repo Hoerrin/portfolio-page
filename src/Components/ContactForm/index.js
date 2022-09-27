@@ -21,6 +21,10 @@ const FormContainer = styled.form`
     color: ${(props) => props.theme.white};
     background-color: ${(props) => props.theme.black};
     z-index: 50;
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+      height: 2rem;
+    }
   `;
 
   const NameInput = styled(Input)`

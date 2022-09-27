@@ -22,6 +22,20 @@ const AboutContainer = styled.div`
     bottom: 0;
     margin: auto;
     height: 12rem;
+    @media screen and (max-width: 768px) {
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 8rem;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 0 2rem;
+    height: auto;
   }
 `;
 

@@ -25,6 +25,10 @@ const NavDot = styled(Link)`
     background-color: red;
     transform: scale(1.2);
   }
+
+  @media screen and (max-width: 768px){
+    display: none;
+  }
 `;
 
 export default function NavDots() {

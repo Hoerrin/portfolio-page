@@ -45,6 +45,9 @@ const AvatarContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  @media screen and (max-width: 768px){
+    padding: 5rem;
+  }
 `;
 
 const Avatar = styled.img`

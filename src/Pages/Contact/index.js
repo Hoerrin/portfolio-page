@@ -25,6 +25,22 @@ const ContactContainer = styled.div`
     margin: auto;
     height: 12rem;
     z-index: -1;
+    @media screen and (max-width: 768px) {
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 8rem;
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 1rem;
   }
 `;
 
@@ -42,6 +58,7 @@ const ContactInnerContainer = styled.div`
 const Separator = styled.p`
   font-size: 1.5rem;
   margin: 2rem;
+  text-align: center,;
 `;
 
 export default function Contact() {
