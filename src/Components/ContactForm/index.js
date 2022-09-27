@@ -81,7 +81,7 @@ export default function ContactForm() {
       <NameInput type="text" name="from_name" placeholder="Your name" required />
       <EmailInput type="email" name="from_email" placeholder="Your email" required />
       <SubjectInput type="text" name="subject" placeholder="Subject" required />
-      <MessageInput as={"textarea"} type="text" name="message" placeholder="Message" required />
+      <MessageInput as={"textarea"} type="text" name="message" placeholder="Message" maxLength={500} required />
       <SubmitContainer>
         <Submit type="submit" value="Send!" />
       </SubmitContainer>

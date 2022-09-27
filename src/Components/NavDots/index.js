@@ -23,6 +23,7 @@ const NavDot = styled(Link)`
   transition: all 0.2s ease-in-out;
   &.active{
     background-color: red;
+    transform: scale(1.2);
   }
 `;
 

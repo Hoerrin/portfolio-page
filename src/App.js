@@ -5,6 +5,7 @@ import Hero from "Pages/Hero";
 import About from "Pages/About";
 import Work from "Pages/Work";
 import Contact from "Pages/Contact";
+import { useEffect } from "react";
 
 const AppContainer = styled.main``;
 
@@ -17,6 +18,18 @@ const theme = {
 };
 
 function App() {
+  const handleScroll = (e) => {
+    console.log(e);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>

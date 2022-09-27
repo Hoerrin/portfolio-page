@@ -18,7 +18,7 @@ const HeroContainer = styled.div`
   &::after {
     position: absolute;
     content: "HI";
-    font-size: 12rem;
+    font-size: 20rem;
     color: ${(props) => props.theme.lightGray};
     left: 7rem;
     top: 0;

@@ -12,7 +12,7 @@ const WorkContainer = styled.div`
   &::after {
     position: absolute;
     content: "WORK";
-    font-size: 12rem;
+    font-size: 20rem;
     color: ${(props) => props.theme.lightGray};
     left: 7rem;
     top: 0;
