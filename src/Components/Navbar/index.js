@@ -22,9 +22,10 @@ const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 12rem;
-  background-color: ${(props) => props.theme.gray};
+  padding: ${(props) => props.scrollPosition <= 0 ? "2.5rem 12rem" : "1rem 12rem;"};
+  background-color: ${(props) => props.scrollPosition <= 0 ? "#0000" : props.theme.gray};
   z-index: 100;
+  transition: all 0.5s;
 `;
 
 const Button = styled(Link)`
@@ -47,9 +48,9 @@ const LanguageButton = styled(Button)`
   margin: 0.2rem;
 `;
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
-    <NavbarContainer>
+    <NavbarContainer scrollPosition = {props.scrollPosition}>
       <div>
         <LanguageButton as={"button"}>PL</LanguageButton>/<LanguageButton as={"button"}>EN</LanguageButton>
       </div>

@@ -5,7 +5,8 @@ import Hero from "Pages/Hero";
 import About from "Pages/About";
 import Work from "Pages/Work";
 import Contact from "Pages/Contact";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import _ from "lodash";
 
 const AppContainer = styled.main``;
 
@@ -18,22 +19,25 @@ const theme = {
 };
 
 function App() {
-  const handleScroll = (e) => {
-    console.log(e);
-  };
+  const [scrollPosition, setScrollPosition] = useState(0);
+
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    document.addEventListener("scroll", _.throttle(handleScroll, 100));
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("scroll", _.throttle(handleScroll, 100));
     };
-  });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
-        <Navbar />
+        <Navbar scrollPosition={scrollPosition}/>
         <NavDots />
         <Hero />
         <About />
