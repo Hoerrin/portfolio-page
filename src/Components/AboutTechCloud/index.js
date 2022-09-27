@@ -1,59 +1,57 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import TagCloud from "TagCloud";
 
 const TechCloudList = [
-  "Lorem",
-  "Ipsum",
-  "Dolor",
-  "Sid",
-  "Amet",
-  "Lorem",
-  "Ipsum",
-  "Dolor",
-  "Sid",
-  "Amet",
-  "Lorem",
-  "Ipsum",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "styled-components",
+  "Git",
+  "Figma",
+  "Wordpress",
+  "GraphQL",
+  "WooCommerce",
+  "npm",
+  "JSON",
+  "BEM",
+  "_lodash",
+  "ES6",
+  "REST",
 ];
-
-const rotate = (props) => keyframes`
-  from {
-    transform: rotate(${props.index * 30 + 0 + "deg"}) translate(0, ${
-  props.index % 2 ? 10 + "rem" : 15 + "rem"
-}) rotate(180deg);
-  }
-
-  to {
-    transform: rotate(${props.index * 30 + 360 + "deg"}) translate(0, ${
-  props.index % 2 ? 10 + "rem" : 15 + "rem"
-}) rotate(180deg);
-  }
-`;
 
 const AboutTechCloudContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+  width: 100%;
 
-const TechCloudElement = styled.p`
-  position: absolute;
-  font-size: 2rem;
-  color: ${(props) => props.theme.accent};
-  animation: ${(props) => rotate(props)} 60s linear infinite;
-  z-index: 1;
+  & > div > span {
+    font-size: 2rem;
+    color: ${(props) => props.theme.accent};
+    cursor: default;
+  }
+
+  & > div {
+    width: 100% !important;
+    height: 100% !important;
+  }
 `;
 
 export default function AboutTechCloud() {
-  return (
-    <AboutTechCloudContainer>
-      {TechCloudList.map((item, index) => {
-        return (
-          <TechCloudElement index={index} key={index}>
-            {item}
-          </TechCloudElement>
-        );
-      })}
-    </AboutTechCloudContainer>
-  );
+  useEffect(() => {
+    const techCloud = TagCloud("#aboutTechCloudContainer", TechCloudList, {
+      keep: true,
+      radius: 200,
+      maxSpeed: "slow",
+      initSpeed: "slow",
+    });
+
+    return function cleanup() {
+      techCloud.destroy();
+    };
+  }, []);
+
+  return <AboutTechCloudContainer id="aboutTechCloudContainer" />;
 }
