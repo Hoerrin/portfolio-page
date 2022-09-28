@@ -31,7 +31,6 @@ const Link = styled.a`
 export default function ContactLinks() {
   return (
     <ContactLinksContainer>
-      <Link href="mailto:patrykd0604@gmail.com">patrykd0604@gmail.com</Link>
       <Link href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank" rel="noreferrer">
         LinkedIn
       </Link>
