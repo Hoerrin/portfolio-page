@@ -28,6 +28,9 @@ const HeroContainer = styled.div`
     margin: auto;
     height: 12rem;
     z-index: -1;
+    @media screen and (max-width: 1280px) {
+      left: 5rem;
+    }
     @media screen and (max-width: 768px) {
       left: 0;
       right: 0;
@@ -35,12 +38,8 @@ const HeroContainer = styled.div`
       font-size: 8rem;
       text-align: center;
     }
-    @media screen and (max-width: 1280px) {
-      left: 5rem;
-    }
   }
 
-  
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }

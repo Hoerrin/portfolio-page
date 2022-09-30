@@ -37,6 +37,10 @@ const AboutTechCloudContainer = styled.div`
     width: 100% !important;
     height: 100% !important;
   }
+
+  @media screen and (max-width: 768px) {
+    height: 400px;
+  }
 `;
 
 export default function AboutTechCloud() {

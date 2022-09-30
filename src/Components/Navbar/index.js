@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as GitHubLogo } from "Images/GitHub.svg";
 import { ReactComponent as LinkedInLogo } from "Images/LinkedIn.svg";
 import { Link } from "react-scroll";
+import NavbarHamburger from "Components/NavbarHamburger/idnex";
 
 const GitHub = styled(GitHubLogo)`
   fill: ${(props) => props.theme.white};
@@ -23,14 +24,13 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding-left: 12rem;
-    padding-right: 12rem;
-  padding-top: ${(props) => props.scrollPosition <= 0 ? "2.5rem" : "1rem;"};
-  padding-bottom: ${(props) => props.scrollPosition <= 0 ? "2.5rem" : "1rem;"};
-  background-color: ${(props) => props.scrollPosition <= 0 ? "#0000" : props.theme.gray};
+  padding-right: 12rem;
+  padding-top: ${(props) => (props.scrollPosition <= 0 ? "2.5rem" : "1rem")};
+  padding-bottom: ${(props) => (props.scrollPosition <= 0 ? "2.5rem" : "1rem")};
+  background-color: ${(props) => (props.scrollPosition <= 0 ? "#0000" : props.theme.gray)};
   z-index: 100;
   transition: all 0.5s;
 
-  
   @media screen and (max-width: 1280px) {
     padding-left: 8rem;
     padding-right: 8rem;
@@ -39,14 +39,21 @@ const NavbarContainer = styled.nav`
     padding-left: 6rem;
     padding-right: 6rem;
   }
-  @media screen and (max-width: 768px){
-    display: none;
+  @media screen and (max-width: 768px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: none
   }
 `;
 
 const NavbarButtonsContainer = styled.div`
-display: flex;
-`
+  display: flex;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const Button = styled(Link)`
   display: inline-flex;
@@ -63,6 +70,12 @@ const Button = styled(Link)`
   font-size: 1.5rem;
 `;
 
+const LanguageButtonsContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 const LanguageButton = styled(Button)`
   font-size: 1rem;
   margin: 0.2rem;
@@ -70,10 +83,12 @@ const LanguageButton = styled(Button)`
 
 export default function Navbar(props) {
   return (
-    <NavbarContainer scrollPosition = {props.scrollPosition}>
-      <div>
-        <LanguageButton as={"button"}>PL</LanguageButton>/<LanguageButton as={"button"}>EN</LanguageButton>
-      </div>
+    <NavbarContainer scrollPosition={props.scrollPosition}>
+      <LanguageButtonsContainer>
+        <LanguageButton as={"button"}>PL</LanguageButton>/
+        <LanguageButton as={"button"}>EN</LanguageButton>
+      </LanguageButtonsContainer>
+      <NavbarHamburger></NavbarHamburger>
       <NavbarButtonsContainer>
         <Button to="about" smooth="true" duration={600}>
           ABOUT
@@ -87,7 +102,12 @@ export default function Navbar(props) {
         <Button as="a" href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">
           <GitHub />
         </Button>
-        <Button as="a" href="https://www.linkedin.com/in/patryk-dworakowski/" target="_blank" rel="noreferrer">
+        <Button
+          as="a"
+          href="https://www.linkedin.com/in/patryk-dworakowski/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <LinkedIn />
         </Button>
       </NavbarButtonsContainer>

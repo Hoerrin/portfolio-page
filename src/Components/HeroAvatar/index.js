@@ -37,7 +37,7 @@ const FloatingCode = styled.p`
   color: ${(props) => props.theme.accent};
   opacity: 0.1;
   animation: ${(props) => rotate(props)} 60s linear infinite;
-  z-index: 1;
+  z-index: 10;
 `;
 
 const AvatarContainer = styled.div`
