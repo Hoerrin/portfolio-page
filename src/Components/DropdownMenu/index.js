@@ -12,7 +12,7 @@ const DropdownMenuContainer = styled.nav`
   flex-flow: column;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(15px) grayscale(100%) brightness(40%);
+  backdrop-filter: blur(15px) grayscale(100%) brightness(50%);
   z-index: 100;
   transition: all ease-in-out 0.3s;
   transform: ${(props) => (props.isActive ? "translate(0)" : "translate(0,-100vh)")};
@@ -35,6 +35,10 @@ const Button = styled(Link)`
   background: none;
   cursor: pointer;
   font-size: 2.5rem;
+  transition: all ease-in-out 0.1s;
+  &:active {
+    color: ${(props) => props.theme.accent};
+  }
 `;
 
 const LanguageButtonsStyled = styled(LanguageButtons)`
@@ -51,10 +55,14 @@ const LanguageButtonsStyled = styled(LanguageButtons)`
 `;
 
 export default function DropdownMenu() {
-  const [isActive, setIsActive] = useState("false");
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
-    setIsActive((isActive) => !isActive);
+    setIsActive((isActive) => {
+      !isActive ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
+      return !isActive
+    });
+    
   };
 
   return (

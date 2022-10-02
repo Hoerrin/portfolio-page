@@ -15,13 +15,14 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 1rem;
   margin: 0.2rem;
+  color: ${props => props.active ? props.theme.accent : props.theme.white};
 `;
 
 export default function LanguageButtons({ className, children }) {
   return (
     <LanguageButtonsContainer className={className}>
       {children}
-      <Button>PL</Button>/<Button>EN</Button>
+      <Button>PL</Button>/<Button active>EN</Button>
     </LanguageButtonsContainer>
   );
 }
