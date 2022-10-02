@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as GitHubLogo } from "Images/GitHub.svg";
 import { ReactComponent as LinkedInLogo } from "Images/LinkedIn.svg";
 import { Link } from "react-scroll";
-import NavbarHamburger from "Components/NavbarHamburger/idnex";
+import LanguageButtons from "Components/LanguageButtons";
 
 const GitHub = styled(GitHubLogo)`
   fill: ${(props) => props.theme.white};
@@ -30,6 +30,7 @@ const NavbarContainer = styled.nav`
   background-color: ${(props) => (props.scrollPosition <= 0 ? "#0000" : props.theme.gray)};
   z-index: 100;
   transition: all 0.5s;
+  overflow: hidden;
 
   @media screen and (max-width: 1280px) {
     padding-left: 8rem;
@@ -40,11 +41,7 @@ const NavbarContainer = styled.nav`
     padding-right: 6rem;
   }
   @media screen and (max-width: 768px) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    background: none
+    display: none
   }
 `;
 
@@ -70,25 +67,11 @@ const Button = styled(Link)`
   font-size: 1.5rem;
 `;
 
-const LanguageButtonsContainer = styled.div`
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const LanguageButton = styled(Button)`
-  font-size: 1rem;
-  margin: 0.2rem;
-`;
 
 export default function Navbar(props) {
   return (
     <NavbarContainer scrollPosition={props.scrollPosition}>
-      <LanguageButtonsContainer>
-        <LanguageButton as={"button"}>PL</LanguageButton>/
-        <LanguageButton as={"button"}>EN</LanguageButton>
-      </LanguageButtonsContainer>
-      <NavbarHamburger></NavbarHamburger>
+      <LanguageButtons />
       <NavbarButtonsContainer>
         <Button to="about" smooth="true" duration={600}>
           ABOUT

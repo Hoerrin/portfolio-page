@@ -1,12 +1,14 @@
 import styled, { ThemeProvider } from "styled-components";
 import Navbar from "Components/Navbar";
 import NavDots from "Components/NavDots";
+import DropdownMenu from "Components/DropdownMenu";
 import Hero from "Pages/Hero";
 import About from "Pages/About";
 import Work from "Pages/Work";
 import Contact from "Pages/Contact";
 import { useEffect, useState } from "react";
 import _ from "lodash";
+
 
 const AppContainer = styled.main``;
 
@@ -20,7 +22,6 @@ const theme = {
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +38,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
-        <Navbar scrollPosition={scrollPosition}/>
+      <DropdownMenu />
+        <Navbar scrollPosition={scrollPosition} />
         <NavDots />
         <Hero />
         <About />
