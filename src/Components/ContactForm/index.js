@@ -2,6 +2,22 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 
+const contentEN = {
+  namePlaceholder: "Name",
+  emailPlaceholder: "E-mail",
+  subjectPlaceholder: "Subject",
+  messagePlaceholder: "Message",
+  submitButton: "Send!"
+};
+
+const contentPL = {
+  namePlaceholder: "Imię i nazwisko",
+  emailPlaceholder: "E-mail",
+  subjectPlaceholder: "Temat",
+  messagePlaceholder: "Treść wiadomości",
+  submitButton: "Wyślij!"
+};
+
 const FormContainer = styled.form`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -69,7 +85,7 @@ const SubmitContainer = styled.div`
   justify-content: center;
 `;
 
-export default function ContactForm() {
+export default function ContactForm(props) {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -87,19 +103,19 @@ export default function ContactForm() {
 
   return (
     <FormContainer ref={form} onSubmit={sendEmail}>
-      <NameInput type="text" name="from_name" placeholder="Your name" required />
-      <EmailInput type="email" name="from_email" placeholder="Your email" required />
-      <SubjectInput type="text" name="subject" placeholder="Subject" required />
+      <NameInput type="text" name="from_name" placeholder={props.language === "EN" ? contentEN.namePlaceholder : contentPL.namePlaceholder} required />
+      <EmailInput type="email" name="from_email" placeholder={props.language === "EN" ? contentEN.emailPlaceholder : contentPL.emailPlaceholder} required />
+      <SubjectInput type="text" name="subject" placeholder={props.language === "EN" ? contentEN.subjectPlaceholder : contentPL.subjectPlaceholder} required />
       <MessageInput
         as={"textarea"}
         type="text"
         name="message"
-        placeholder="Message"
+        placeholder={props.language === "EN" ? contentEN.messagePlaceholder : contentPL.messagePlaceholder}
         maxLength={500}
         required
       />
       <SubmitContainer>
-        <Submit type="submit" value="Send!" />
+        <Submit type="submit" value={props.language === "EN" ? contentEN.submitButton : contentPL.submitButton} />
       </SubmitContainer>
     </FormContainer>
   );

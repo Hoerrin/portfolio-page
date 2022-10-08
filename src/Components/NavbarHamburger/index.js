@@ -4,8 +4,8 @@ import styled from "styled-components";
 const NavbarHamburgerContainer = styled.div`
   position: fixed;
   top: 0;
+  right: 0;
   padding: 2rem;
-  width: 100%;
   align-items: center;
   justify-content: flex-end;
   display: none;

@@ -4,6 +4,18 @@ import React, { useState } from "react";
 import { Link } from "react-scroll";
 import styled from "styled-components";
 
+const contentEN = {
+  about: "ABOUT",
+  portfolio: "PORTFOLIO",
+  contact: "CONTACT",
+};
+
+const contentPL = {
+  about: "O MNIE",
+  portfolio: "PORTFOLIO",
+  contact: "KONTAKT",
+};
+
 const DropdownMenuContainer = styled.nav`
   position: fixed;
   display: none;
@@ -54,30 +66,31 @@ const LanguageButtonsStyled = styled(LanguageButtons)`
   }
 `;
 
-export default function DropdownMenu() {
+export default function DropdownMenu({ handleSetLanguage, language }) {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
     setIsActive((isActive) => {
-      !isActive ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
-      return !isActive
+      !isActive
+        ? (document.body.style.overflow = "hidden")
+        : (document.body.style.overflow = "auto");
+      return !isActive;
     });
-    
   };
 
   return (
     <>
       <NavbarHamburger handleClick={handleClick} isActive={isActive} />
       <DropdownMenuContainer onClick={handleClick} isActive={isActive}>
-        <LanguageButtonsStyled />
+        <LanguageButtonsStyled language={language} handleSetLanguage={handleSetLanguage} />
         <Button to="about" smooth="true" duration={600} onClick={handleClick}>
-          ABOUT
+          {language === "EN" ? contentEN.about : contentPL.about}
         </Button>
-        <Button to="work" smooth="true" duration={600} onClick={handleClick}>
-          WORK
+        <Button to="portfolio" smooth="true" duration={600} onClick={handleClick}>
+          {language === "EN" ? contentEN.portfolio : contentPL.portfolio}
         </Button>
         <Button to="contact" smooth="true" duration={600} onClick={handleClick}>
-          CONTACT
+          {language === "EN" ? contentEN.contact : contentPL.contact}
         </Button>
       </DropdownMenuContainer>
     </>

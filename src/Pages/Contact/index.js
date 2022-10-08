@@ -3,6 +3,20 @@ import ContactLinks from "Components/ContactLinks";
 import React from "react";
 import styled from "styled-components";
 
+const contentEN = {
+  formHeader: "Use this form",
+  separator: "Or",
+  linksHeader: "Find me on",
+  parallax: "CONTACT"
+};
+
+const contentPL = {
+  formHeader: "Użyj tego formularza",
+  separator: "Lub",
+  linksHeader: "Znajdż mnie tutaj",
+  parallax: "KONTAKT"
+};
+
 const ContactContainer = styled.div`
   position: relative;
   overflow: hidden;
@@ -16,7 +30,7 @@ const ContactContainer = styled.div`
   z-index: 10;
   &::after {
     position: absolute;
-    content: "CONTACT";
+    content: '${(props) => (props.language === "EN" ? contentEN.parallax : contentPL.parallax)}';
     font-size: 20rem;
     color: ${(props) => props.theme.lightGray};
     left: 7rem;
@@ -33,7 +47,7 @@ const ContactContainer = styled.div`
       text-align: center;
     }
   }
-  
+
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }
@@ -70,16 +84,16 @@ const Separator = styled.p`
   }
 `;
 
-export default function Contact() {
+export default function Contact({language}) {
   return (
-    <ContactContainer id="contact">
+    <ContactContainer id="contact" language={language}>
       <ContactInnerContainer>
-        <H2>Use this form</H2>
-        <ContactForm />
+        <H2>{language === "EN" ? contentEN.formHeader : contentPL.formHeader}</H2>
+        <ContactForm language={language} />
       </ContactInnerContainer>
-      <Separator>Or</Separator>
+      <Separator>{language === "EN" ? contentEN.separator : contentPL.separator}</Separator>
       <ContactInnerContainer>
-        <H2>Find me on</H2>
+        <H2>{language === "EN" ? contentEN.linksHeader : contentPL.linksHeader}</H2>
         <ContactLinks />
       </ContactInnerContainer>
     </ContactContainer>

@@ -3,6 +3,14 @@ import AboutTechCloud from "Components/AboutTechCloud";
 import React from "react";
 import styled from "styled-components";
 
+const contentEN ={
+  parallax: "About"
+}
+
+const contentPL = {
+  parallax: "O mnie"
+}
+
 const AboutContainer = styled.div`
   position: relative;
   overflow: hidden;
@@ -15,7 +23,7 @@ const AboutContainer = styled.div`
   z-index: 10;
   &::after {
     position: absolute;
-    content: "ABOUT";
+    content: '${(props) => (props.language === "EN" ? contentEN.parallax : contentPL.parallax)}';
     font-size: 20rem;
     color: ${(props) => props.theme.lightGray};
     left: 7rem;
@@ -48,9 +56,9 @@ const AboutContainer = styled.div`
   }
 `;
 
-export default function About() {
+export default function About({language}) {
   return (
-    <AboutContainer id="about">
+    <AboutContainer id="about" language={language}>
       <AboutParagraph />
       <AboutTechCloud />
     </AboutContainer>

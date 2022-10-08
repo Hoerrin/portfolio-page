@@ -5,6 +5,18 @@ import { ReactComponent as LinkedInLogo } from "Images/LinkedIn.svg";
 import { Link } from "react-scroll";
 import LanguageButtons from "Components/LanguageButtons";
 
+const contentEN = {
+  about:"ABOUT",
+  portfolio:"PORTFOLIO",
+  contact:"CONTACT"
+};
+
+const contentPL = {
+  about:"O MNIE",
+  portfolio:"PORTFOLIO",
+  contact:"KONTAKT"
+};
+
 const GitHub = styled(GitHubLogo)`
   fill: ${(props) => props.theme.white};
   width: auto;
@@ -68,19 +80,19 @@ const Button = styled(Link)`
 `;
 
 
-export default function Navbar(props) {
+export default function Navbar({language, scrollPosition, handleSetLanguage}) {
   return (
-    <NavbarContainer scrollPosition={props.scrollPosition}>
-      <LanguageButtons />
+    <NavbarContainer scrollPosition={scrollPosition}>
+      <LanguageButtons language={language} handleSetLanguage={handleSetLanguage}/>
       <NavbarButtonsContainer>
         <Button to="about" smooth="true" duration={600}>
-          ABOUT
+        {language === "EN" ? contentEN.about : contentPL.about}
         </Button>
-        <Button to="work" smooth="true" duration={600}>
-          WORK
+        <Button to="portfolio" smooth="true" duration={600}>
+        {language === "EN" ? contentEN.portfolio : contentPL.portfolio}
         </Button>
         <Button to="contact" smooth="true" duration={600}>
-          CONTACT
+        {language === "EN" ? contentEN.contact : contentPL.contact}
         </Button>
         <Button as="a" href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">
           <GitHub />

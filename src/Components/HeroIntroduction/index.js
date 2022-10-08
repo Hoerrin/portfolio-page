@@ -2,6 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
 
+const contentEN = {
+  h2: "My name is",
+  button: "Contact me!",
+};
+
+const contentPL = {
+  h2: "Nazywam się",
+  button: "Skontaktuj się!",
+};
+
 const HeroIntroductionContainer = styled.div`
   position: relative;
   display: flex;
@@ -18,7 +28,7 @@ const H1 = styled.h1`
   font-weight: bold;
   font-size: 6rem;
   color: ${(props) => props.theme.accent};
-  
+
   @media screen and (max-width: 1280px) {
     font-size: 5.5rem;
   }
@@ -37,7 +47,7 @@ const H2 = styled.h2`
   font-weight: 400;
   font-size: 3rem;
   color: ${(props) => props.theme.white};
-  
+
   @media screen and (max-width: 1280px) {
     font-size: 2.7rem;
   }
@@ -57,7 +67,7 @@ const H3 = styled.h3`
   font-size: 1.5rem;
   padding-top: 1rem;
   color: ${(props) => props.theme.white};
-  
+
   @media screen and (max-width: 1280px) {
     font-size: 1.4rem;
   }
@@ -84,10 +94,10 @@ const Button = styled(Link)`
   }
 `;
 
-export default function HeroIntroduction() {
+export default function HeroIntroduction({language}) {
   return (
     <HeroIntroductionContainer>
-      <H2>My name is</H2>
+      <H2>{language === "EN" ? contentEN.h2 : contentPL.h2}</H2>
       <H1>
         Patryk
         <br />
@@ -95,7 +105,7 @@ export default function HeroIntroduction() {
       </H1>
       <H3>Front-End Developer</H3>
       <Button to="contact" smooth="true" duration={600}>
-        Contact me
+        {language === "EN" ? contentEN.button : contentPL.button}
       </Button>
     </HeroIntroductionContainer>
   );

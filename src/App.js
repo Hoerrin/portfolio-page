@@ -4,11 +4,10 @@ import NavDots from "Components/NavDots";
 import DropdownMenu from "Components/DropdownMenu";
 import Hero from "Pages/Hero";
 import About from "Pages/About";
-import Work from "Pages/Work";
+import Portfolio from "Pages/Portfolio";
 import Contact from "Pages/Contact";
 import { useEffect, useState } from "react";
 import _ from "lodash";
-
 
 const AppContainer = styled.main``;
 
@@ -21,9 +20,20 @@ const theme = {
 };
 
 function App() {
+  //Store scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
+  //Store language choice
+  let [language, setLanguage] = useState();
+
+  const handleSetLanguage = (languageToSet) => {
+    setLanguage(languageToSet)
+    localStorage.setItem(language, languageToSet)
+  }
 
   useEffect(() => {
+    //On first render check if language is in localStorage and set state. If not, set default EN.
+    setLanguage(localStorage.getItem("language") || "EN");
+
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
     };
@@ -38,13 +48,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
-      <DropdownMenu />
-        <Navbar scrollPosition={scrollPosition} />
+        <DropdownMenu language={language} handleSetLanguage={handleSetLanguage} />
+        <Navbar language={language} handleSetLanguage={handleSetLanguage} scrollPosition={scrollPosition} />
         <NavDots />
-        <Hero />
-        <About />
-        <Work />
-        <Contact />
+        <Hero language={language}/>
+        <About language={language}/>
+        <Portfolio language={language}/>
+        <Contact language={language} />
       </AppContainer>
     </ThemeProvider>
   );

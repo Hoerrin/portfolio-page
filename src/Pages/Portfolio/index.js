@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const WorkContainer = styled.div`
+const PortfolioContainer = styled.div`
   position: relative;
   overflow: hidden;
   display: flex;
@@ -15,7 +15,7 @@ const WorkContainer = styled.div`
   z-index: 10;
   &::after {
     position: absolute;
-    content: "WORK";
+    content: "PORTFOLIO";
     font-size: 20rem;
     color: ${(props) => props.theme.lightGray};
     left: 7rem;
@@ -70,9 +70,9 @@ const TempDiv = styled.div`
   }
 `;
 
-export default function Work() {
+export default function Portfolio({language}) {
   return (
-    <WorkContainer id="work">
+    <PortfolioContainer id="portfolio" language={language}>
       <TempDiv>test</TempDiv>
       <TempDiv>test</TempDiv>
       <TempDiv>test</TempDiv>
@@ -83,6 +83,6 @@ export default function Work() {
       <TempDiv>test</TempDiv>
       <TempDiv>test</TempDiv>
       <TempDiv>test</TempDiv>
-    </WorkContainer>
+    </PortfolioContainer>
   );
 }

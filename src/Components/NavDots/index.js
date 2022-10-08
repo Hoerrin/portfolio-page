@@ -35,10 +35,10 @@ const NavDot = styled(Link)`
 export default function NavDots() {
   return (
     <NavDotsContainer>
-      <NavDot to="hero" spy={true} disabled={true} offset={-200}/>
-      <NavDot to="about" spy={true} offset={-200}/>
-      <NavDot to="work" spy={true} offset={-200}/>
-      <NavDot to="contact" spy={true} offset={-200}/>
+      <NavDot to="hero" spy={true} offset={-200} smooth="true" duration={600}/>
+      <NavDot to="about" spy={true} offset={-200} smooth="true" duration={600}/>
+      <NavDot to="portfolio" spy={true} offset={-200} smooth="true" duration={600}/>
+      <NavDot to="contact" spy={true} offset={-200} smooth="true" duration={600}/>
     </NavDotsContainer>
   );
 }

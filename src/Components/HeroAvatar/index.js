@@ -53,7 +53,7 @@ const AvatarContainer = styled.div`
 const Avatar = styled.img`
   width: 100%;
   max-width: 400px;
-  z-index: 2;
+  z-index: 100;
 `;
 
 export default function HeroAvatar() {

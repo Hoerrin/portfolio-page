@@ -3,6 +3,14 @@ import styled from "styled-components";
 import HeroIntroduction from "Components/HeroIntroduction";
 import HeroAvatar from "Components/HeroAvatar";
 
+const contentEN ={
+  parallax: "Hi"
+}
+
+const contentPL = {
+  parallax: "Cześć"
+}
+
 const HeroContainer = styled.div`
   position: relative;
   overflow: hidden;
@@ -19,7 +27,7 @@ const HeroContainer = styled.div`
   z-index: 10;
   &::after {
     position: absolute;
-    content: "HI";
+    content: '${(props) => (props.language === "EN" ? contentEN.parallax : contentPL.parallax)}';
     font-size: 20rem;
     color: ${(props) => props.theme.lightGray};
     left: 7rem;
@@ -56,10 +64,10 @@ const HeroContainer = styled.div`
   }
 `;
 
-export default function Hero() {
+export default function Hero({language}) {
   return (
-    <HeroContainer id="hero">
-      <HeroIntroduction />
+    <HeroContainer id="hero" language={language}>
+      <HeroIntroduction language={language}/>
       <HeroAvatar />
     </HeroContainer>
   );
