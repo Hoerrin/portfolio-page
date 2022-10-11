@@ -6,15 +6,15 @@ import { Link } from "react-scroll";
 import LanguageButtons from "Components/LanguageButtons";
 
 const contentEN = {
-  about:"ABOUT",
-  portfolio:"PORTFOLIO",
-  contact:"CONTACT"
+  about: "ABOUT",
+  portfolio: "PORTFOLIO",
+  contact: "CONTACT",
 };
 
 const contentPL = {
-  about:"O MNIE",
-  portfolio:"PORTFOLIO",
-  contact:"KONTAKT"
+  about: "O MNIE",
+  portfolio: "PORTFOLIO",
+  contact: "KONTAKT",
 };
 
 const GitHub = styled(GitHubLogo)`
@@ -53,7 +53,7 @@ const NavbarContainer = styled.nav`
     padding-right: 6rem;
   }
   @media screen and (max-width: 768px) {
-    display: none
+    display: none;
   }
 `;
 
@@ -79,20 +79,19 @@ const Button = styled(Link)`
   font-size: 1.5rem;
 `;
 
-
-export default function Navbar({language, scrollPosition, handleSetLanguage}) {
+export default function Navbar({ language, scrollPosition, handleSetLanguage }) {
   return (
     <NavbarContainer scrollPosition={scrollPosition}>
-      <LanguageButtons language={language} handleSetLanguage={handleSetLanguage}/>
+      <LanguageButtons language={language} handleSetLanguage={handleSetLanguage} />
       <NavbarButtonsContainer>
         <Button to="about" smooth="true" duration={600}>
-        {language === "EN" ? contentEN.about : contentPL.about}
+          {language === "EN" ? contentEN.about : contentPL.about}
         </Button>
         <Button to="portfolio" smooth="true" duration={600}>
-        {language === "EN" ? contentEN.portfolio : contentPL.portfolio}
+          {language === "EN" ? contentEN.portfolio : contentPL.portfolio}
         </Button>
         <Button to="contact" smooth="true" duration={600}>
-        {language === "EN" ? contentEN.contact : contentPL.contact}
+          {language === "EN" ? contentEN.contact : contentPL.contact}
         </Button>
         <Button as="a" href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">
           <GitHub />

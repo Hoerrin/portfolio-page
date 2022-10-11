@@ -1,15 +1,16 @@
 import AboutParagraph from "Components/AboutParagraph";
 import AboutTechCloud from "Components/AboutTechCloud";
-import React from "react";
+import ParallaxText from "Components/ParallaxText";
+import React, { useRef } from "react";
 import styled from "styled-components";
 
-const contentEN ={
-  parallax: "About"
-}
+const contentEN = {
+  parallax: "About",
+};
 
 const contentPL = {
-  parallax: "O mnie"
-}
+  parallax: "O mnie",
+};
 
 const AboutContainer = styled.div`
   position: relative;
@@ -21,27 +22,7 @@ const AboutContainer = styled.div`
   background: ${(props) => props.theme.black};
   padding: 0 12rem;
   z-index: 10;
-  &::after {
-    position: absolute;
-    content: '${(props) => (props.language === "EN" ? contentEN.parallax : contentPL.parallax)}';
-    font-size: 20rem;
-    color: ${(props) => props.theme.lightGray};
-    left: 7rem;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 12rem;
-    z-index: -1;
-    @media screen and (max-width: 768px) {
-      left: 0;
-      right: 0;
-      margin: auto;
-      font-size: 8rem;
-      text-align: center;
-    }
-  }
 
-  
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }
@@ -56,9 +37,11 @@ const AboutContainer = styled.div`
   }
 `;
 
-export default function About({language}) {
+export default function About({ language }) {
+  let containerRef = useRef()
   return (
-    <AboutContainer id="about" language={language}>
+    <AboutContainer id="about" language={language} ref={containerRef}>
+      <ParallaxText parallaxText={language === "EN" ? contentEN.parallax : contentPL.parallax} containerRef={containerRef} />
       <AboutParagraph />
       <AboutTechCloud />
     </AboutContainer>

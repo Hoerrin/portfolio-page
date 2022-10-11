@@ -94,7 +94,7 @@ const Button = styled(Link)`
   }
 `;
 
-export default function HeroIntroduction({language}) {
+export default function HeroIntroduction({ language }) {
   return (
     <HeroIntroductionContainer>
       <H2>{language === "EN" ? contentEN.h2 : contentPL.h2}</H2>

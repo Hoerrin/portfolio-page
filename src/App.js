@@ -23,17 +23,14 @@ function App() {
   //Store scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
   //Store language choice
-  let [language, setLanguage] = useState();
+  let [language, setLanguage] = useState(localStorage.getItem("language") || "EN");
 
   const handleSetLanguage = (languageToSet) => {
-    setLanguage(languageToSet)
-    localStorage.setItem(language, languageToSet)
-  }
+    setLanguage(languageToSet);
+    localStorage.setItem(language, languageToSet);
+  };
 
   useEffect(() => {
-    //On first render check if language is in localStorage and set state. If not, set default EN.
-    setLanguage(localStorage.getItem("language") || "EN");
-
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
     };
@@ -49,11 +46,15 @@ function App() {
     <ThemeProvider theme={theme}>
       <AppContainer>
         <DropdownMenu language={language} handleSetLanguage={handleSetLanguage} />
-        <Navbar language={language} handleSetLanguage={handleSetLanguage} scrollPosition={scrollPosition} />
+        <Navbar
+          language={language}
+          handleSetLanguage={handleSetLanguage}
+          scrollPosition={scrollPosition}
+        />
         <NavDots />
-        <Hero language={language}/>
-        <About language={language}/>
-        <Portfolio language={language}/>
+        <Hero language={language} />
+        <About language={language} />
+        <Portfolio language={language} />
         <Contact language={language} />
       </AppContainer>
     </ThemeProvider>

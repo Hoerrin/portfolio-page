@@ -48,9 +48,7 @@ const HambrgerButtonBarLow = styled(HambrgerButtonBar)`
     props.isActive && "translate(0.46rem, 0) translate(0.03rem,0.03rem) rotate(-45deg)"};
 `;
 
-export default function NavbarHamburger({handleClick, isActive}) {
-  
-
+export default function NavbarHamburger({ handleClick, isActive }) {
   return (
     <NavbarHamburgerContainer>
       <HambrgerButton onClick={handleClick}>

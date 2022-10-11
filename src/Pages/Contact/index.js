@@ -1,20 +1,21 @@
 import ContactForm from "Components/ContactForm";
 import ContactLinks from "Components/ContactLinks";
-import React from "react";
+import ParallaxText from "Components/ParallaxText";
+import React, { useRef } from "react";
 import styled from "styled-components";
 
 const contentEN = {
   formHeader: "Use this form",
   separator: "Or",
   linksHeader: "Find me on",
-  parallax: "CONTACT"
+  parallax: "CONTACT",
 };
 
 const contentPL = {
   formHeader: "Użyj tego formularza",
   separator: "Lub",
   linksHeader: "Znajdż mnie tutaj",
-  parallax: "KONTAKT"
+  parallax: "KONTAKT",
 };
 
 const ContactContainer = styled.div`
@@ -28,26 +29,6 @@ const ContactContainer = styled.div`
   background: ${(props) => props.theme.black};
   padding: 0 12rem;
   z-index: 10;
-  &::after {
-    position: absolute;
-    content: '${(props) => (props.language === "EN" ? contentEN.parallax : contentPL.parallax)}';
-    font-size: 20rem;
-    color: ${(props) => props.theme.lightGray};
-    left: 7rem;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 12rem;
-    z-index: -1;
-    @media screen and (max-width: 768px) {
-      left: 0;
-      right: 0;
-      margin: auto;
-      font-size: 8rem;
-      text-align: center;
-    }
-  }
-
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }
@@ -84,9 +65,12 @@ const Separator = styled.p`
   }
 `;
 
-export default function Contact({language}) {
+export default function Contact({ language }) {
+  let containerRef = useRef();
+
   return (
-    <ContactContainer id="contact" language={language}>
+    <ContactContainer id="contact" language={language} ref={containerRef}>
+      <ParallaxText parallaxText={language === "EN" ? contentEN.parallax : contentPL.parallax} containerRef={containerRef}/>
       <ContactInnerContainer>
         <H2>{language === "EN" ? contentEN.formHeader : contentPL.formHeader}</H2>
         <ContactForm language={language} />

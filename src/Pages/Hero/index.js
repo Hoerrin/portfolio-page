@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import HeroIntroduction from "Components/HeroIntroduction";
 import HeroAvatar from "Components/HeroAvatar";
+import ParallaxText from "Components/ParallaxText";
 
-const contentEN ={
-  parallax: "Hi"
-}
+const contentEN = {
+  parallax: "Hi",
+};
 
 const contentPL = {
-  parallax: "Cześć"
-}
+  parallax: "Cześć",
+};
 
 const HeroContainer = styled.div`
   position: relative;
@@ -25,28 +26,6 @@ const HeroContainer = styled.div`
     ${(props) => props.theme.black} 100%
   );
   z-index: 10;
-  &::after {
-    position: absolute;
-    content: '${(props) => (props.language === "EN" ? contentEN.parallax : contentPL.parallax)}';
-    font-size: 20rem;
-    color: ${(props) => props.theme.lightGray};
-    left: 7rem;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 12rem;
-    z-index: -1;
-    @media screen and (max-width: 1280px) {
-      left: 5rem;
-    }
-    @media screen and (max-width: 768px) {
-      left: 0;
-      right: 0;
-      margin: auto;
-      font-size: 8rem;
-      text-align: center;
-    }
-  }
 
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
@@ -64,10 +43,13 @@ const HeroContainer = styled.div`
   }
 `;
 
-export default function Hero({language}) {
+export default function Hero({ language }) {
+  let containerRef = useRef();
+
   return (
-    <HeroContainer id="hero" language={language}>
-      <HeroIntroduction language={language}/>
+    <HeroContainer id="hero" language={language} ref={containerRef}>
+      <ParallaxText parallaxText={language === "EN" ? contentEN.parallax : contentPL.parallax} containerRef={containerRef}/>
+      <HeroIntroduction language={language} />
       <HeroAvatar />
     </HeroContainer>
   );

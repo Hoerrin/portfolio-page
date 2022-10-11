@@ -22,12 +22,12 @@ const NavDot = styled(Link)`
   margin-bottom: 1rem;
   transition: all 0.2s ease-in-out;
   opacity: 0.3;
-  &.active{
+  &.active {
     background-color: ${(props) => props.theme.accent};
     transform: scale(1.2);
   }
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
@@ -35,10 +35,10 @@ const NavDot = styled(Link)`
 export default function NavDots() {
   return (
     <NavDotsContainer>
-      <NavDot to="hero" spy={true} offset={-200} smooth="true" duration={600}/>
-      <NavDot to="about" spy={true} offset={-200} smooth="true" duration={600}/>
-      <NavDot to="portfolio" spy={true} offset={-200} smooth="true" duration={600}/>
-      <NavDot to="contact" spy={true} offset={-200} smooth="true" duration={600}/>
+      <NavDot to="hero" spy={true} offset={-200} smooth="true" duration={600} />
+      <NavDot to="about" spy={true} offset={-200} smooth="true" duration={600} />
+      <NavDot to="portfolio" spy={true} offset={-200} smooth="true" duration={600} />
+      <NavDot to="contact" spy={true} offset={-200} smooth="true" duration={600} />
     </NavDotsContainer>
   );
 }

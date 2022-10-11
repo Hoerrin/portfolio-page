@@ -16,13 +16,19 @@ const Button = styled.button`
   font-size: 1rem;
   margin: 0.2rem;
   transition: all 0.3s;
-  color: ${props => props.active ? props.theme.accent : props.theme.white};
+  color: ${(props) => (props.active ? props.theme.accent : props.theme.white)};
 `;
 
 export default function LanguageButtons({ className, language, handleSetLanguage }) {
   return (
     <LanguageButtonsContainer className={className}>
-      <Button active={language === "PL" && true} onClick={() => handleSetLanguage("PL")}>PL</Button>/<Button active={language === "EN" && true} onClick={() => handleSetLanguage("EN")}>EN</Button>
+      <Button active={language === "PL" && true} onClick={() => handleSetLanguage("PL")}>
+        PL
+      </Button>
+      /
+      <Button active={language === "EN" && true} onClick={() => handleSetLanguage("EN")}>
+        EN
+      </Button>
     </LanguageButtonsContainer>
   );
 }

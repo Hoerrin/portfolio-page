@@ -1,5 +1,14 @@
-import React from "react";
+import ParallaxText from "Components/ParallaxText";
+import React, { useRef } from "react";
 import styled from "styled-components";
+
+const contentEN = {
+  parallax: "Portfolio",
+};
+
+const contentPL = {
+  parallax: "Portfolio",
+};
 
 const PortfolioContainer = styled.div`
   position: relative;
@@ -13,26 +22,7 @@ const PortfolioContainer = styled.div`
   background: ${(props) => props.theme.black};
   padding: 0 12rem;
   z-index: 10;
-  &::after {
-    position: absolute;
-    content: "PORTFOLIO";
-    font-size: 20rem;
-    color: ${(props) => props.theme.lightGray};
-    left: 7rem;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 12rem;
-    z-index: -1;
-    @media screen and (max-width: 768px) {
-      left: 0;
-      right: 0;
-      margin: auto;
-      font-size: 8rem;
-      text-align: center;
-    }
-  }
-  
+
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }
@@ -70,9 +60,11 @@ const TempDiv = styled.div`
   }
 `;
 
-export default function Portfolio({language}) {
+export default function Portfolio({ language }) {
+  let containerRef = useRef();
   return (
-    <PortfolioContainer id="portfolio" language={language}>
+    <PortfolioContainer id="portfolio" language={language} ref={containerRef}>
+      <ParallaxText parallaxText={language === "EN" ? contentEN.parallax : contentPL.parallax} containerRef={containerRef}/>
       <TempDiv>test</TempDiv>
       <TempDiv>test</TempDiv>
       <TempDiv>test</TempDiv>
