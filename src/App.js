@@ -6,8 +6,8 @@ import Hero from "Pages/Hero";
 import About from "Pages/About";
 import Portfolio from "Pages/Portfolio";
 import Contact from "Pages/Contact";
-import { useEffect, useState } from "react";
-import _ from "lodash";
+import { useState } from "react";
+
 
 const AppContainer = styled.main``;
 
@@ -20,8 +20,7 @@ const theme = {
 };
 
 function App() {
-  //Store scroll position
-  const [scrollPosition, setScrollPosition] = useState(0);
+  
   //Store language choice
   let [language, setLanguage] = useState(localStorage.getItem("language") || "EN");
 
@@ -30,17 +29,7 @@ function App() {
     localStorage.setItem("language", languageToSet);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-
-    document.addEventListener("scroll", _.throttle(handleScroll, 100));
-
-    return () => {
-      document.removeEventListener("scroll", _.throttle(handleScroll, 100));
-    };
-  }, []);
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -49,7 +38,6 @@ function App() {
         <Navbar
           language={language}
           handleSetLanguage={handleSetLanguage}
-          scrollPosition={scrollPosition}
         />
         <NavDots />
         <Hero language={language} />

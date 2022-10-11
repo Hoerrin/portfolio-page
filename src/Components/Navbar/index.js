@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as GitHubLogo } from "Images/GitHub.svg";
 import { ReactComponent as LinkedInLogo } from "Images/LinkedIn.svg";
 import { Link } from "react-scroll";
 import LanguageButtons from "Components/LanguageButtons";
+import _ from "lodash";
 
 const contentEN = {
   about: "ABOUT",
@@ -79,7 +80,22 @@ const Button = styled(Link)`
   font-size: 1.5rem;
 `;
 
-export default function Navbar({ language, scrollPosition, handleSetLanguage }) {
+export default function Navbar({ language, handleSetLanguage }) {
+  //Store scroll position
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    setScrollPosition(window.scrollY)
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", _.throttle(handleScroll, 100));
+
+    return () => {
+      document.removeEventListener("scroll", _.throttle(handleScroll, 100));
+    };
+  }, []);
+  
   return (
     <NavbarContainer scrollPosition={scrollPosition}>
       <LanguageButtons language={language} handleSetLanguage={handleSetLanguage} />

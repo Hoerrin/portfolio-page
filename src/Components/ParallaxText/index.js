@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 let Text = styled.p`
@@ -21,10 +21,5 @@ let Text = styled.p`
 `;
 
 export default function ParallaxText({ parallaxText, containerRef }) {
-useEffect(() => {
-  console.log(containerRef)
-
-}, [containerRef])
-
   return <Text>{parallaxText}</Text>;
 }
