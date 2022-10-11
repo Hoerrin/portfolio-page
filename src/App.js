@@ -27,7 +27,7 @@ function App() {
 
   const handleSetLanguage = (languageToSet) => {
     setLanguage(languageToSet);
-    localStorage.setItem(language, languageToSet);
+    localStorage.setItem("language", languageToSet);
   };
 
   useEffect(() => {
