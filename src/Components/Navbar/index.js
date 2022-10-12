@@ -38,9 +38,9 @@ const NavbarContainer = styled.nav`
   align-items: center;
   padding-left: 12rem;
   padding-right: 12rem;
-  padding-top: ${(props) => (props.scrollPosition <= 0 ? "2.5rem" : "1rem")};
-  padding-bottom: ${(props) => (props.scrollPosition <= 0 ? "2.5rem" : "1rem")};
-  background-color: ${(props) => (props.scrollPosition <= 0 ? "#0000" : props.theme.gray)};
+  padding-top: ${(props) => (props.isNavbarShrinked  ? "1rem" : "2.5rem")};
+  padding-bottom: ${(props) => (props.isNavbarShrinked ? "1rem" : "2.5rem")};
+  background-color: ${(props) => (props.isNavbarShrinked ? props.theme.gray : "#0000")};
   z-index: 100;
   transition: all 0.5s;
   overflow: hidden;
@@ -82,22 +82,22 @@ const Button = styled(Link)`
 
 export default function Navbar({ language, handleSetLanguage }) {
   //Store scroll position
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isNavbarShrinked, setIsNavbarShrinked] = useState(false);
 
   const handleScroll = () => {
-    setScrollPosition(window.scrollY)
+    window.scrollY === 0 ? setIsNavbarShrinked(false) : setIsNavbarShrinked(true)
   };
 
   useEffect(() => {
     document.addEventListener("scroll", _.throttle(handleScroll, 100));
-
+    console.log("loguje")
     return () => {
       document.removeEventListener("scroll", _.throttle(handleScroll, 100));
     };
   }, []);
   
   return (
-    <NavbarContainer scrollPosition={scrollPosition}>
+    <NavbarContainer isNavbarShrinked={isNavbarShrinked}>
       <LanguageButtons language={language} handleSetLanguage={handleSetLanguage} />
       <NavbarButtonsContainer>
         <Button to="about" smooth="true" duration={600}>

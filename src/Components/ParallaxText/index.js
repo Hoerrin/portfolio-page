@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import _ from "lodash"
 
 let Text = styled.p`
   position: absolute;
@@ -21,5 +22,18 @@ let Text = styled.p`
 `;
 
 export default function ParallaxText({ parallaxText, containerRef }) {
+  
+  const handleScroll = () => {
+   // console.log(containerRef)
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", _.throttle(handleScroll, 100));
+
+    return () => {
+      document.removeEventListener("scroll", _.throttle(handleScroll, 100));
+    };
+  }, []);
+  
   return <Text>{parallaxText}</Text>;
 }
