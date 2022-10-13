@@ -90,7 +90,6 @@ export default function Navbar({ language, handleSetLanguage }) {
 
   useEffect(() => {
     document.addEventListener("scroll", _.throttle(handleScroll, 100));
-    console.log("loguje")
     return () => {
       document.removeEventListener("scroll", _.throttle(handleScroll, 100));
     };

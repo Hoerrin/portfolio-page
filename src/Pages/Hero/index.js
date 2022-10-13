@@ -48,7 +48,10 @@ export default function Hero({ language }) {
 
   return (
     <HeroContainer id="hero" language={language} ref={containerRef}>
-      <ParallaxText parallaxText={language === "EN" ? contentEN.parallax : contentPL.parallax} containerRef={containerRef}/>
+      <ParallaxText
+        parallaxText={language === "EN" ? contentEN.parallax : contentPL.parallax}
+        containerRef={containerRef}
+      />
       <HeroIntroduction language={language} />
       <HeroAvatar />
     </HeroContainer>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 
@@ -8,6 +8,8 @@ const contentEN = {
   subjectPlaceholder: "Subject",
   messagePlaceholder: "Message",
   submitButton: "Send!",
+  confirmationMessageL1: "Message sent",
+  confirmationMessageL2: "I'll respond as fast as i can!",
 };
 
 const contentPL = {
@@ -16,16 +18,37 @@ const contentPL = {
   subjectPlaceholder: "Temat",
   messagePlaceholder: "Treść wiadomości",
   submitButton: "Wyślij!",
+  confirmationMessageL1: "Wiadomość wysłana",
+  confirmationMessageL2: "Odpowiem naszybciej jak się da!",
 };
 
 const FormContainer = styled.form`
   display: grid;
+  position: relative;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(7, 1fr);
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   z-index: 5;
   width: 100%;
+`;
+
+const ConfirmationWindow = styled.div`
+  position: absolute;
+  display: ${(props) => (props.isSent ? "flex" : "none")};
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.theme.black};
+  border: 1px solid ${(props) => props.theme.white};
+  z-index: 100;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const Input = styled.input`
@@ -87,22 +110,41 @@ const SubmitContainer = styled.div`
 
 export default function ContactForm(props) {
   const form = useRef();
+  const [isSent, setisSent] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm("service_78zm6q9", "template_tpmjmpd", form.current, "4Lq2udnxc7jHSykJb").then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
+    if (!isSent) {
+      emailjs
+        .sendForm("service_78zm6q9", "template_tpmjmpd", form.current, "4Lq2udnxc7jHSykJb")
+        .then(
+          (result) => {
+            setisSent(true);
+            console.log(result.text);
+          },
+          (error) => {
+            alert(error.text)
+            console.log(error.text);
+          }
+        );
+    }
   };
 
   return (
     <FormContainer ref={form} onSubmit={sendEmail}>
+      <ConfirmationWindow isSent={isSent}>
+        <p>
+          {props.language === "EN"
+            ? contentEN.confirmationMessageL1
+            : contentPL.confirmationMessageL1}
+        </p>
+        <p>
+          {props.language === "EN"
+            ? contentEN.confirmationMessageL2
+            : contentPL.confirmationMessageL2}
+        </p>
+      </ConfirmationWindow>
       <NameInput
         type="text"
         name="from_name"
