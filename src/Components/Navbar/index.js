@@ -38,7 +38,7 @@ const NavbarContainer = styled.nav`
   align-items: center;
   padding-left: 12rem;
   padding-right: 12rem;
-  padding-top: ${(props) => (props.isNavbarShrinked  ? "1rem" : "2.5rem")};
+  padding-top: ${(props) => (props.isNavbarShrinked ? "1rem" : "2.5rem")};
   padding-bottom: ${(props) => (props.isNavbarShrinked ? "1rem" : "2.5rem")};
   background-color: ${(props) => (props.isNavbarShrinked ? props.theme.gray : "#0000")};
   z-index: 100;
@@ -66,10 +66,12 @@ const NavbarButtonsContainer = styled.div`
 `;
 
 const Button = styled(Link)`
+  color: ${(props) => props.theme.white};
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 0 1.5rem;
+  padding: 0.2rem 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -78,14 +80,39 @@ const Button = styled(Link)`
   background: none;
   cursor: pointer;
   font-size: 1.5rem;
+  transition: all 0.3s;
+  will-change: transform;
+  overflow: hidden;
+  &:hover {
+    transform: scale(1.05) translate(0, -0.05rem);
+  }
+  &::after{
+    position: absolute;
+    top: 1.5rem;
+    left: -100%;
+    width: 100%;
+    height: 0.2rem;
+    background-color: ${(props) => props.theme.accent};
+    transition: all 0.3s;
+    content: "";
+  }
+  &:hover::after{
+    left: 0;
+  }
 `;
+
+const ButtonSocial = styled(Button)`
+&::after{
+    display: none;
+  }
+`
 
 export default function Navbar({ language, handleSetLanguage }) {
   //Store scroll position
   const [isNavbarShrinked, setIsNavbarShrinked] = useState(false);
 
   const handleScroll = () => {
-    window.scrollY === 0 ? setIsNavbarShrinked(false) : setIsNavbarShrinked(true)
+    window.scrollY === 0 ? setIsNavbarShrinked(false) : setIsNavbarShrinked(true);
   };
 
   useEffect(() => {
@@ -94,7 +121,7 @@ export default function Navbar({ language, handleSetLanguage }) {
       document.removeEventListener("scroll", _.throttle(handleScroll, 100));
     };
   }, []);
-  
+
   return (
     <NavbarContainer isNavbarShrinked={isNavbarShrinked}>
       <LanguageButtons language={language} handleSetLanguage={handleSetLanguage} />
@@ -108,17 +135,17 @@ export default function Navbar({ language, handleSetLanguage }) {
         <Button to="contact" smooth="true" duration={600}>
           {language === "EN" ? contentEN.contact : contentPL.contact}
         </Button>
-        <Button as="a" href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">
+        <ButtonSocial as="a" href="https://github.com/Hoerrin" target="_blank" rel="noreferrer">
           <GitHub />
-        </Button>
-        <Button
+        </ButtonSocial>
+        <ButtonSocial
           as="a"
           href="https://www.linkedin.com/in/patryk-dworakowski/"
           target="_blank"
           rel="noreferrer"
         >
           <LinkedIn />
-        </Button>
+        </ButtonSocial>
       </NavbarButtonsContainer>
     </NavbarContainer>
   );
