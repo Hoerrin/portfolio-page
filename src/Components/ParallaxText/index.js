@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 let Text = styled.p.attrs((props) => ({
   style: {
-    transform: `translate(0, ${props.transformMult*window.innerHeight*0.2 + "px"})`,
+    transform: `translate(0, ${props.transformMult * window.innerHeight * 0.15  + "px"})`,
   },
 }))`
   position: absolute;
@@ -18,10 +18,9 @@ let Text = styled.p.attrs((props) => ({
   /* transition: all 0.1s; */
 
   @media screen and (max-width: 768px) {
-    left: 0;
-    right: 0;
+    left: 1rem;
     margin: auto;
-    font-size: 6rem;
+    font-size: 4.5rem;
     text-align: center;
   }
 `;

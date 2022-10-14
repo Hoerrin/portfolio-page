@@ -5,7 +5,7 @@ import HeroAvatar from "Components/HeroAvatar";
 import ParallaxText from "Components/ParallaxText";
 
 const contentEN = {
-  parallax: "Hi",
+  parallax: "Hello",
 };
 
 const contentPL = {
