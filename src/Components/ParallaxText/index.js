@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import _ from "lodash"
 
-let Text = styled.p`
+let Text = styled.p.attrs((props) => ({
+  style: {
+    transform: `translate(0, ${props.transformMult*window.innerHeight*0.2 + "px"})`,
+  },
+}))`
   position: absolute;
   font-size: 20rem;
   color: ${(props) => props.theme.lightGray};
@@ -12,28 +15,33 @@ let Text = styled.p`
   margin: auto;
   height: 12rem;
   z-index: -1;
+  /* transition: all 0.1s; */
+
   @media screen and (max-width: 768px) {
     left: 0;
     right: 0;
     margin: auto;
-    font-size: 8rem;
+    font-size: 6rem;
     text-align: center;
   }
 `;
 
 export default function ParallaxText({ parallaxText, containerRef }) {
-  
+  const [transformMult, setTransformMult] = useState(0);
+
   const handleScroll = () => {
-   // console.log(containerRef)
+    let formula =
+      window.scrollY / (containerRef.current.offsetTop + containerRef.current.scrollHeight);
+    setTransformMult(formula);
   };
 
   useEffect(() => {
-    document.addEventListener("scroll", _.throttle(handleScroll, 100));
+    document.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("scroll", _.throttle(handleScroll, 100));
+      document.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-  
-  return <Text>{parallaxText}</Text>;
+  });
+
+  return <Text transformMult={transformMult}>{parallaxText}</Text>;
 }

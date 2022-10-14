@@ -20,12 +20,14 @@ const contentPL = {
 
 const GitHub = styled(GitHubLogo)`
   fill: ${(props) => props.theme.white};
+  transition: all 0.3s;
   width: auto;
   height: 1.5rem;
 `;
 
 const LinkedIn = styled(LinkedInLogo)`
   fill: ${(props) => props.theme.white};
+  transition: all 0.3s;
   width: auto;
   height: 1.5rem;
 `;
@@ -86,7 +88,7 @@ const Button = styled(Link)`
   &:hover {
     transform: scale(1.05) translate(0, -0.05rem);
   }
-  &::after{
+  &::after {
     position: absolute;
     top: 1.5rem;
     left: -100%;
@@ -96,16 +98,16 @@ const Button = styled(Link)`
     transition: all 0.3s;
     content: "";
   }
-  &:hover::after{
+  &:hover::after {
     left: 0;
   }
 `;
 
 const ButtonSocial = styled(Button)`
-&::after{
+  &::after {
     display: none;
   }
-`
+`;
 
 export default function Navbar({ language, handleSetLanguage }) {
   //Store scroll position

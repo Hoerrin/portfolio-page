@@ -8,7 +8,6 @@ import Portfolio from "Pages/Portfolio";
 import Contact from "Pages/Contact";
 import { useState } from "react";
 
-
 const AppContainer = styled.main``;
 
 const theme = {
@@ -20,25 +19,19 @@ const theme = {
 };
 
 function App() {
-  
   //Store language choice
-  let [language, setLanguage] = useState(localStorage.getItem("language") || "EN");
+  let [language, setLanguage] = useState(localStorage.getItem("language") || "PL");
 
   const handleSetLanguage = (languageToSet) => {
     setLanguage(languageToSet);
     localStorage.setItem("language", languageToSet);
   };
 
-  
-
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
         <DropdownMenu language={language} handleSetLanguage={handleSetLanguage} />
-        <Navbar
-          language={language}
-          handleSetLanguage={handleSetLanguage}
-        />
+        <Navbar language={language} handleSetLanguage={handleSetLanguage} />
         <NavDots />
         <Hero language={language} />
         <About language={language} />

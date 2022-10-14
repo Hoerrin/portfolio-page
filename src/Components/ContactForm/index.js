@@ -124,7 +124,7 @@ export default function ContactForm(props) {
             console.log(result.text);
           },
           (error) => {
-            alert(error.text)
+            alert(error.text);
             console.log(error.text);
           }
         );
