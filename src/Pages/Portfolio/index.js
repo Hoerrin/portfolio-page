@@ -1,6 +1,9 @@
 import ParallaxText from "Components/ParallaxText";
-import React, { Suspense, useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import portfolioPageSS from "Images/memoji.png";
+import airportBoardSS from "Images/memoji.png";
+import toDoSS from "Images/memoji.png";
 
 const contentEN = {
   parallax: "Portfolio",
@@ -14,7 +17,7 @@ const PortfolioContainer = styled.div`
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 1fr;
   height: 100vh;
   width: 100%;
   background: ${(props) => props.theme.black};
@@ -50,7 +53,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   position: relative;
   font-size: 1.6rem;
-  margin: 1rem 0;
+  padding: 1rem 0;
   cursor: pointer;
   transition: all ease-in-out 0.3s;
   &:hover {
@@ -74,42 +77,66 @@ const DisplayContainer = styled.div`
 `;
 
 const Display = styled.div`
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   border: 1px solid ${(props) => props.theme.white};
   border-radius: 0.2rem;
   background-color: ${(props) => props.theme.black + "aa"};
   backdrop-filter: blur(5px);
-  //transform: scale(0.1);
+  transition: all ease-out 0.3s;
+  transform: ${(props) => (props.isHovering ? "scale(1)" : "scale(0.7)")};
+  opacity: ${(props) => (props.isHovering ? "100%" : "0%")};
+`;
+
+const Screenshot = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0%;
+  transition: all ease-in-out 0.6s;
+  &[data-active="true"] {
+    opacity: 100%;
+    transform: scale(1.1);
+  }
 `;
 
 export default function Portfolio({ language }) {
   let containerRef = useRef();
+  const [isHovering, setIsHovering] = useState();
 
-  const handleMouseEnter = (video) => {};
+  const handleMouseEnter = (item) => {
+    const element = document.querySelector(`img[data-title="${item.title}"]`);
+    setIsHovering(true);
+    element.setAttribute("data-active", "true");
+  };
 
-  const handleMouseLeave = () => {};
+  const handleMouseLeave = (item) => {
+    const element = document.querySelector(`img[data-title="${item.title}"]`);
+    setIsHovering(false);
+    element.setAttribute("data-active", "false");
+  };
 
   const portfolioItems = [
     {
       title: "This site",
       description: "",
       GHPages: "https://hoerrin.github.io/portfolio-page/",
-      video: "",
+      screenshot: portfolioPageSS,
     },
     {
       title: "Airport Departure Board (data fetched from API)",
       description: "",
       GHPages: "https://hoerrin.github.io/airport_departures_board/",
-      screenshot: "",
-      video: "",
+      screenshot: airportBoardSS,
     },
     {
       title: "Yet another ToDo app",
       description: "",
       GHPages: "",
-      screenshot: "",
-      video: "",
+      screenshot: toDoSS,
     },
   ];
 
@@ -123,18 +150,24 @@ export default function Portfolio({ language }) {
         {portfolioItems.map((item, index) => (
           <ListItem
             key={index}
-            onMouseEnter={() => handleMouseEnter(item.video)}
-            onMouseLeave={() => handleMouseLeave(item.video)}
+            onMouseEnter={() => handleMouseEnter(item)}
+            onMouseLeave={() => handleMouseLeave(item)}
           >
             {item.title}
           </ListItem>
         ))}
       </List>
       <DisplayContainer>
-        <Display>
-          <Suspense fallback="Loading...">
-            <img src="" alt="" />
-          </Suspense>
+        <Display isHovering={isHovering}>
+          {portfolioItems.map((item, index) => (
+            <Screenshot
+              key={index}
+              data-title={item.title}
+              data-active={false}
+              src={item.screenshot}
+              alt={item.title + " screenshot"}
+            />
+          ))}
         </Display>
       </DisplayContainer>
     </PortfolioContainer>
