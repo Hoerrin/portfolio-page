@@ -1,5 +1,5 @@
 import ParallaxText from "Components/ParallaxText";
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import styled from "styled-components";
 
 const contentEN = {
@@ -80,10 +80,39 @@ const Display = styled.div`
   border-radius: 0.2rem;
   background-color: ${(props) => props.theme.black + "aa"};
   backdrop-filter: blur(5px);
+  //transform: scale(0.1);
 `;
 
 export default function Portfolio({ language }) {
   let containerRef = useRef();
+
+  const handleMouseEnter = (video) => {};
+
+  const handleMouseLeave = () => {};
+
+  const portfolioItems = [
+    {
+      title: "This site",
+      description: "",
+      GHPages: "https://hoerrin.github.io/portfolio-page/",
+      video: "",
+    },
+    {
+      title: "Airport Departure Board (data fetched from API)",
+      description: "",
+      GHPages: "https://hoerrin.github.io/airport_departures_board/",
+      screenshot: "",
+      video: "",
+    },
+    {
+      title: "Yet another ToDo app",
+      description: "",
+      GHPages: "",
+      screenshot: "",
+      video: "",
+    },
+  ];
+
   return (
     <PortfolioContainer id="portfolio" language={language} ref={containerRef}>
       <ParallaxText
@@ -91,12 +120,22 @@ export default function Portfolio({ language }) {
         containerRef={containerRef}
       />
       <List>
-        <ListItem>This site</ListItem>
-        <ListItem>Airport Departure Board (data fetched from API)</ListItem>
-        <ListItem>Yet another ToDo app </ListItem>
+        {portfolioItems.map((item, index) => (
+          <ListItem
+            key={index}
+            onMouseEnter={() => handleMouseEnter(item.video)}
+            onMouseLeave={() => handleMouseLeave(item.video)}
+          >
+            {item.title}
+          </ListItem>
+        ))}
       </List>
       <DisplayContainer>
-        <Display />
+        <Display>
+          <Suspense fallback="Loading...">
+            <img src="" alt="" />
+          </Suspense>
+        </Display>
       </DisplayContainer>
     </PortfolioContainer>
   );
