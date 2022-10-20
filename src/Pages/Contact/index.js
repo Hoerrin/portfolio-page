@@ -38,11 +38,10 @@ const ContactContainer = styled.div`
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    padding: 0;
+    padding: 1rem;
     align-items: center;
     justify-content: center;
     height: auto;
-    padding: 1rem;
   }
 `;
 

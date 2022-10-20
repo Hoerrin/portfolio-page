@@ -55,11 +55,12 @@ const Input = styled.input`
   font-size: 1.5rem;
   height: 3rem;
   width: 100%;
-  padding-left: 1rem;
+  padding: 0 1rem;
   border-radius: 0.2rem;
   border: 1px solid ${(props) => props.theme.white};
   color: ${(props) => props.theme.white};
-  background-color: ${(props) => props.theme.black};
+  background-color: ${(props) => props.theme.black + "aa"};
+  backdrop-filter: blur(5px);
   z-index: 50;
   @media screen and (max-width: 768px) {
     font-size: 1rem;
@@ -81,6 +82,7 @@ const SubjectInput = styled(Input)`
 
 const MessageInput = styled(Input)`
   padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
   resize: none;
   grid-area: 3 / 1 / 7 / 3;
   height: 100%;
@@ -176,7 +178,7 @@ export default function ContactForm(props) {
         placeholder={
           props.language === "EN" ? contentEN.messagePlaceholder : contentPL.messagePlaceholder
         }
-        maxLength={500}
+        maxLength={1500}
         required
       />
       <SubmitContainer>

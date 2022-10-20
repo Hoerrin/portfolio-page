@@ -36,7 +36,7 @@ const HeroContainer = styled.div`
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    padding: 0;
+    padding: 1rem;
     align-items: center;
     justify-content: center;
     height: auto;

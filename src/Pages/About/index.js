@@ -32,7 +32,7 @@ const AboutContainer = styled.div`
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    padding: 0 2rem;
+    padding: 1rem;
     height: auto;
   }
 `;

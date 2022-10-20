@@ -12,7 +12,8 @@ const ContactLinksContainer = styled.div`
   border: 1px solid ${(props) => props.theme.white};
   border-radius: 0.2rem;
   color: ${(props) => props.theme.white};
-  background-color: ${(props) => props.theme.black};
+  background-color: ${(props) => props.theme.black + "aa"};
+  backdrop-filter: blur(5px);
   z-index: 50;
   height: 27rem;
   @media screen and (max-width: 768px) {
