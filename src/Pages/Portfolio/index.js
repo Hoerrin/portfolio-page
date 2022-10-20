@@ -43,6 +43,8 @@ const List = styled.ul`
   align-items: flex-start;
   flex-flow: column;
   list-style: none;
+  line-height: 2rem;
+  padding-right: 2rem;
 `;
 
 const ListItem = styled.li`
@@ -68,7 +70,7 @@ const ListItem = styled.li`
 `;
 
 const DisplayContainer = styled.div`
-  padding: 15rem 0;
+  padding: 13rem 0;
 `;
 
 const Display = styled.div`
