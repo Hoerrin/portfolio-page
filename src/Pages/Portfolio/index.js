@@ -7,10 +7,16 @@ import toDoSS from "Images/PortfolioScreens/toDoSS.png";
 
 const contentEN = {
   parallax: "Portfolio",
+  portfolioPage: "This page",
+  airportBoard: "Airport departure board (data fetched from API)",
+  toDo: "Yet another ToDo app",
 };
 
 const contentPL = {
   parallax: "Portfolio",
+  portfolioPage: "Ta strona",
+  airportBoard: "Tablica odlotów (dane pobierane z API)",
+  toDo: "Kolejna ToDo apka",
 };
 
 const PortfolioContainer = styled.div`
@@ -77,10 +83,8 @@ const DisplayContainer = styled.div`
   width: 100%;
   height: 100%;
   @media screen and (max-width: 1280px) {
-    
   }
   @media screen and (max-width: 930px) {
-    
   }
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -123,30 +127,30 @@ export default function Portfolio({ language }) {
   const handleMouseEnter = (item) => {
     const elements = document.querySelectorAll(`[data-title="${item.title}"]`);
     setIsHovering(true);
-    elements.forEach(item => item.setAttribute("data-active", "true"));
+    elements.forEach((item) => item.setAttribute("data-active", "true"));
   };
 
   const handleMouseLeave = (item) => {
     const elements = document.querySelectorAll(`[data-title="${item.title}"]`);
     setIsHovering(false);
-    elements.forEach(item => item.setAttribute("data-active", "false"));
+    elements.forEach((item) => item.setAttribute("data-active", "false"));
   };
 
   const portfolioItems = [
     {
-      title: "This site",
+      title: language === "EN" ? contentEN.portfolioPage : contentPL.portfolioPage,
       description: "",
       GHPages: "https://hoerrin.github.io/portfolio-page/",
       screenshot: portfolioPageSS,
     },
     {
-      title: "Airport Departure Board (data fetched from API)",
+      title: language === "EN" ? contentEN.airportBoard : contentPL.airportBoard,
       description: "",
       GHPages: "https://hoerrin.github.io/airport_departures_board/",
       screenshot: airportBoardSS,
     },
     {
-      title: "Yet another ToDo app",
+      title: language === "EN" ? contentEN.toDo : contentPL.toDo,
       description: "",
       GHPages: "https://hoerrin.github.io/react-redux-to-do-app/",
       screenshot: toDoSS,
