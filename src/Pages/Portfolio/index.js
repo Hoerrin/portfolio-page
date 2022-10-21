@@ -1,9 +1,9 @@
 import ParallaxText from "Components/ParallaxText";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import portfolioPageSS from "Images/memoji.png";
-import airportBoardSS from "Images/memoji.png";
-import toDoSS from "Images/memoji.png";
+import portfolioPageSS from "Images/PortfolioScreens/portfolioPageSS.png";
+import airportBoardSS from "Images/PortfolioScreens/airportBoardSS.png";
+import toDoSS from "Images/PortfolioScreens/toDoSS.png";
 
 const contentEN = {
   parallax: "Portfolio",
@@ -17,7 +17,7 @@ const PortfolioContainer = styled.div`
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   height: 100vh;
   width: 100%;
   background: ${(props) => props.theme.black};
@@ -135,7 +135,7 @@ export default function Portfolio({ language }) {
     {
       title: "Yet another ToDo app",
       description: "",
-      GHPages: "",
+      GHPages: "https://hoerrin.github.io/react-redux-to-do-app/",
       screenshot: toDoSS,
     },
   ];
