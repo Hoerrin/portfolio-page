@@ -56,7 +56,7 @@ const ListItem = styled.li`
   padding: 1rem 0;
   cursor: pointer;
   transition: all ease-in-out 0.3s;
-  &:hover {
+  &[data-active="true"] {
     transform: translate(1rem);
   }
   &::before {
@@ -66,7 +66,7 @@ const ListItem = styled.li`
     left: -2rem;
     opacity: 0%;
   }
-  &:hover::before {
+  &[data-active="true"]::before {
     opacity: 100%;
     left: -1.5rem;
   }
@@ -74,6 +74,19 @@ const ListItem = styled.li`
 
 const DisplayContainer = styled.div`
   padding: 13rem 0;
+  width: 100%;
+  height: 100%;
+  @media screen and (max-width: 1280px) {
+    
+  }
+  @media screen and (max-width: 930px) {
+    
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 0;
+  }
 `;
 
 const Display = styled.div`
@@ -108,15 +121,15 @@ export default function Portfolio({ language }) {
   const [isHovering, setIsHovering] = useState();
 
   const handleMouseEnter = (item) => {
-    const element = document.querySelector(`img[data-title="${item.title}"]`);
+    const elements = document.querySelectorAll(`[data-title="${item.title}"]`);
     setIsHovering(true);
-    element.setAttribute("data-active", "true");
+    elements.forEach(item => item.setAttribute("data-active", "true"));
   };
 
   const handleMouseLeave = (item) => {
-    const element = document.querySelector(`img[data-title="${item.title}"]`);
+    const elements = document.querySelectorAll(`[data-title="${item.title}"]`);
     setIsHovering(false);
-    element.setAttribute("data-active", "false");
+    elements.forEach(item => item.setAttribute("data-active", "false"));
   };
 
   const portfolioItems = [
@@ -150,6 +163,8 @@ export default function Portfolio({ language }) {
         {portfolioItems.map((item, index) => (
           <ListItem
             key={index}
+            data-title={item.title}
+            data-active={false}
             onMouseEnter={() => handleMouseEnter(item)}
             onMouseLeave={() => handleMouseLeave(item)}
           >
