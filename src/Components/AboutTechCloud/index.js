@@ -19,6 +19,8 @@ const TechCloudList = [
   "_lodash",
   "ES6",
   "REST",
+  "JQuery",
+  "API",
 ];
 
 const AboutTechCloudContainer = styled.div`
