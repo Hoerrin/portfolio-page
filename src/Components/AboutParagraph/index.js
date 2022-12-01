@@ -41,7 +41,7 @@ const Paragraph = styled.p`
   font-size: 1.1rem;
   letter-spacing: 0.2rem;
   line-height: 1.5rem;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024) {
     line-height: 1.2rem;
     font-size: 1rem;
     letter-spacing: 0.1rem;

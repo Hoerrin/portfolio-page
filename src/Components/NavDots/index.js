@@ -27,7 +27,7 @@ const NavDot = styled(Link)`
     transform: scale(1.2);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 `;

@@ -32,10 +32,7 @@ const ContactContainer = styled.div`
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }
-  @media screen and (max-width: 930px) {
-    padding: 0 6rem;
-  }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     padding: 1rem;
@@ -59,7 +56,7 @@ const ContactInnerContainer = styled.div`
 const Separator = styled.p`
   font-size: 1.5rem;
   margin: 2rem;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     text-align: center;
   }
 `;

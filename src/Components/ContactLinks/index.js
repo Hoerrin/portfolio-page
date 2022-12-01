@@ -16,7 +16,7 @@ const ContactLinksContainer = styled.div`
   backdrop-filter: blur(5px);
   z-index: 50;
   height: 27rem;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     height: auto;
     padding: 2rem 0;
   }
@@ -24,7 +24,7 @@ const ContactLinksContainer = styled.div`
 
 const Link = styled.a`
   padding: 0.5rem;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     font-size: 1rem;
   }
 `;

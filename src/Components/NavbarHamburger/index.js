@@ -10,7 +10,7 @@ const NavbarHamburgerContainer = styled.div`
   justify-content: flex-end;
   display: none;
   z-index: 999;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: flex;
   }
 `;

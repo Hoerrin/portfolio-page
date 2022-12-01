@@ -33,10 +33,8 @@ const PortfolioContainer = styled.div`
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }
-  @media screen and (max-width: 930px) {
-    padding: 0 6rem;
-  }
-  @media screen and (max-width: 768px) {
+
+  @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     padding: 1rem;
@@ -82,11 +80,8 @@ const DisplayContainer = styled.div`
   padding: 13rem 0;
   width: 100%;
   height: 100%;
-  @media screen and (max-width: 1280px) {
-  }
-  @media screen and (max-width: 930px) {
-  }
-  @media screen and (max-width: 768px) {
+
+  @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     padding: 0;
@@ -98,6 +93,7 @@ const Display = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  aspect-ratio: 16 / 10;
   border: 1px solid ${(props) => props.theme.white};
   border-radius: 0.2rem;
   background-color: ${(props) => props.theme.black + "aa"};

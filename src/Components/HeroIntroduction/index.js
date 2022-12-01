@@ -19,7 +19,7 @@ const HeroIntroductionContainer = styled.div`
   justify-content: center;
   text-align: left;
   z-index: 1;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     text-align: center;
   }
 `;
@@ -33,12 +33,6 @@ const H1 = styled.h1`
     font-size: 5.5rem;
   }
   @media screen and (max-width: 1024px) {
-    font-size: 4.5rem;
-  }
-  @media screen and (max-width: 930px) {
-    font-size: 4rem;
-  }
-  @media screen and (max-width: 768px) {
     font-size: 3.5rem;
   }
 `;
@@ -52,12 +46,6 @@ const H2 = styled.h2`
     font-size: 2.7rem;
   }
   @media screen and (max-width: 1024px) {
-    font-size: 2.2rem;
-  }
-  @media screen and (max-width: 930px) {
-    font-size: 1.9rem;
-  }
-  @media screen and (max-width: 768px) {
     font-size: 1.5rem;
   }
 `;
@@ -72,9 +60,6 @@ const H3 = styled.h3`
     font-size: 1.4rem;
   }
   @media screen and (max-width: 1024px) {
-    font-size: 1.1rem;
-  }
-  @media screen and (max-width: 768px) {
     font-size: 1rem;
   }
 `;
@@ -89,7 +74,7 @@ const Button = styled(Link)`
   cursor: pointer;
   font-size: 1.5rem;
   color: ${(props) => props.theme.black};
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     align-self: center;
   }
 `;

@@ -17,7 +17,7 @@ let Text = styled.p.attrs((props) => ({
   z-index: -1;
   /* transition: all 0.1s; */
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     left: 1rem;
     margin: auto;
     font-size: 4.5rem;

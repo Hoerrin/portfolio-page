@@ -30,10 +30,7 @@ const HeroContainer = styled.div`
   @media screen and (max-width: 1280px) {
     padding: 0 8rem;
   }
-  @media screen and (max-width: 930px) {
-    padding: 0 6rem;
-  }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     padding: 1rem;

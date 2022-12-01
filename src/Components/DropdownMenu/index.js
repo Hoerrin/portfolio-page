@@ -28,7 +28,7 @@ const DropdownMenuContainer = styled.nav`
   z-index: 100;
   transition: all ease-in-out 0.3s;
   transform: ${(props) => (props.isActive ? "translate(0)" : "translate(0,-100vh)")};
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: flex;
   }
 `;

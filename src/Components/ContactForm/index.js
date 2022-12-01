@@ -46,7 +46,7 @@ const ConfirmationWindow = styled.div`
   background-color: ${(props) => props.theme.black};
   border: 1px solid ${(props) => props.theme.white};
   z-index: 100;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024) {
     font-size: 1rem;
   }
 `;
@@ -62,7 +62,7 @@ const Input = styled.input`
   background-color: ${(props) => props.theme.black + "aa"};
   backdrop-filter: blur(5px);
   z-index: 50;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024) {
     font-size: 1rem;
     height: 2rem;
   }

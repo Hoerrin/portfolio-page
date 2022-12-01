@@ -51,18 +51,16 @@ const NavbarContainer = styled.nav`
     padding-left: 8rem;
     padding-right: 8rem;
   }
-  @media screen and (max-width: 930px) {
+  @media screen and (max-width: 1024px) {
+    display: none;
     padding-left: 6rem;
     padding-right: 6rem;
-  }
-  @media screen and (max-width: 768px) {
-    display: none;
   }
 `;
 
 const NavbarButtonsContainer = styled.div`
   display: flex;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 `;
